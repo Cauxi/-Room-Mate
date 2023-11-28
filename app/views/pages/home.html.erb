@@ -1,15 +1,14 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>Aqui vão aparecer os cartões das pessoas, um de cada vez</h1>
+<p>Para já, aparecem primeiro os owners e em segundo as pessoas sem grupo</p>
 
 <% @groups.each do |group| %>
   <ul>
-    <li><%= group.name %></li>
+    <li><%= group.name %> <%= link_to group.name, group_path(group) %></li>
   </ul>
 <% end %>
 
 <% @users_show.each do |x| %>
   <ul>
-    <li><%= x.email %></li>
+    <li><%= x.email %> <%= link_to "Description", user_path(x) %></li>
   </ul>
 <% end %>
-

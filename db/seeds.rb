@@ -7,3 +7,5 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+User.destroy_all
+User.create(first_name: "Vasco", last_name: "Gangster", nickname: "badboy", age: 21, location: "São Pedro da Cova", description: "I love guns and sex", email: "vasco@gmail.com", password: "123456", gender: "male")
