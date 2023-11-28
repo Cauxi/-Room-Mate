@@ -25,7 +25,7 @@ class GroupsController < ApplicationController
   end
 
   def params_group
-    params.require(:group).permit(:status, :user_id)
+    params.require(:group).permit(:name, :user_id)
   end
 
 end

@@ -22,6 +22,7 @@ class MembersController < ApplicationController
     @member.save
     redirect_to dashboard_path
   end
+  
   def reject
     @member = Member.find(params[:id])
     @member.status = "rejected"
