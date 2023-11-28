@@ -2,11 +2,22 @@ class GroupsController < ApplicationController
   before_action :set_group, only: [:show]
 
   def show
+    @group = Group.find(params[:id])
     @member = Member.new
+    count = 0
+    current_user.groups.each do |group|
+      count += group.members.count { |member| member.status == "pending" }
+    end
+    @members_pending = count
   end
 
   def new
     @group = Group.new
+    count = 0
+    current_user.groups.each do |group|
+      count += group.members.count { |member| member.status == "pending" }
+    end
+    @members_pending = count
   end
 
   def create

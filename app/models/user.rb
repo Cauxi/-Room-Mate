@@ -12,8 +12,8 @@ class User < ApplicationRecord
   validates :location, presence: true
   validates :gender, presence: true, inclusion: { in: %w(Male Female) }
   validates :description, presence: true, length: { minimum: 10 }
-
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :groups
+  has_many :groups, dependent: :destroy
+  has_many :members, dependent: :destroy
 end
