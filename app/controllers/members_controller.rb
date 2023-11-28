@@ -6,7 +6,8 @@ class MembersController < ApplicationController
   end
 
   def create
-    @member = Member.new(params_member)
+    @group = Group.find(params[:group_id])
+    @member = Member.new
     @member.group = @group
     @member.user = current_user
     if @member.save
@@ -22,7 +23,7 @@ class MembersController < ApplicationController
     @member.save
     redirect_to dashboard_path
   end
-  
+
   def reject
     @member = Member.find(params[:id])
     @member.status = "rejected"
@@ -36,9 +37,4 @@ class MembersController < ApplicationController
   def set_group
     @group = Group.find(params[:group_id])
   end
-
-  def params_member
-    params.require(:member).permit(:status)
-  end
-
 end
