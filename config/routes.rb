@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :groups, only: [:new, :create, :show, :destroy] do
     resources :members, only: [:new, :create]
   end
+  post "/users/:nickname/members/new", to: "members#new_member", as: "new_member_user"
   get '/users/:nickname', to: 'users#show', as: 'user'
   patch "/members/:id/accept", to: "members#accept", as: "accept"
   patch "/members/:id/reject", to: "members#reject", as: "reject"

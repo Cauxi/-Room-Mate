@@ -7,7 +7,18 @@
         <%= link_to member.group.name, group_path(member.group) %>
       <% end %>
     </ul>
-<% end %>
+  <% end %>
+
+
+  <% @members.each do |member| %>
+       <p><%=  User.find(Group.find(member.group_id).user_id).first_name %> wants to invite you to join his <%= Group.find(member.group_id).name %>.</p>
+       <p> Current status from this member: <strong><%= member.status %></strong>.</p>
+        <% if member.status == "pending" %>
+          <p> You want to: <%= link_to "Heart", accept_path(member), data: {turbo_method: :patch}  %> or <%= link_to "X", reject_path(member), data: {turbo_method: :patch} %> ?</p>
+        <% else %>
+          <p> The requester joined your group.</p>
+        <% end %>
+   <% end %>
 <% else %>
   <h2>Manage Your Invitations</h2>
   <% @groups.each do |group| %>

@@ -17,6 +17,19 @@ class MembersController < ApplicationController
     end
   end
 
+  def new_member
+    @group = Group.find(current_user.groups[0].id)
+    @user = User.where(nickname: params[:nickname])
+    @member = Member.new
+    @member.group = @group
+    @member.user = @user[0]
+    if @member.save
+      redirect_to root_path
+    else
+      render :new, status: unprocessable_entity
+    end
+  end
+
   def accept
     @member = Member.find(params[:id])
     @member.status = "accepted"
