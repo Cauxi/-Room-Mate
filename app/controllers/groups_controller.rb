@@ -2,7 +2,6 @@ class GroupsController < ApplicationController
   before_action :set_group, only: [:show]
 
   def show
-    @group = Group.find(params[:id])
     @member = Member.new
     count = 0
     current_user.groups.each do |group|
@@ -10,6 +9,10 @@ class GroupsController < ApplicationController
     end
     @members_pending = count
     @is_user_member = isUserMemberOfGroup
+    @colection = []
+    @group.members.each do |element|
+      @colection.push(element["user_id"])
+    end
   end
 
   def new
