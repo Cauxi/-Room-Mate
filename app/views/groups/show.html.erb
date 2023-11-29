@@ -1,10 +1,9 @@
 <h2><%= @group.name %></h2>
 
-
 <% if @group.user_id == current_user.id %>
   <p>Welcome to your group</p>
 <% else %>
-  <% if current_user.members == nil %>
+  <% unless @is_user_member%>
     <%= simple_form_for [@group, @member] do |f| %>
       <%= f.submit "Heart", class: "btn btn-dark" %>
     <% end %>
@@ -12,4 +11,3 @@
     <p>Welcome to your group</p>
   <% end %>
 <% end %>
-
