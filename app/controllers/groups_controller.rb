@@ -9,6 +9,7 @@ class GroupsController < ApplicationController
       count += group.members.count { |member| member.status == "pending" }
     end
     @members_pending = count
+    @is_user_member = isUserMemberOfGroup
   end
 
   def new
@@ -39,4 +40,11 @@ class GroupsController < ApplicationController
     params.require(:group).permit(:name, :user_id)
   end
 
+  def isUserMemberOfGroup
+    current_user.member_ids.each do |id|
+      result = @group.member_ids.include?(id)
+      return true if result
+    end
+    return false
+  end
 end

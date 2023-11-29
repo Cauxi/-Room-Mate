@@ -14,6 +14,22 @@
           <li class="nav-item active">
             <%= link_to "Home", "/", class: "nav-link" %>
           </li>
+          <% if current_user.groups != nil && current_user.groups.first == nil %>
+
+              <% if current_user.members.first["user_id"] == current_user.id  %>
+                <li class="nav-item active">
+                  <%= link_to "My group", group_path(current_user.members.first["group_id"]), class: "nav-link" %>
+                </li>
+              <% end %>
+          <% end %>
+
+          <% if current_user.groups != nil && current_user.groups.first != nil %>
+                    <% if current_user.groups.first["user_id"] == current_user.id %>
+                      <li class="nav-item active">
+                        <%= link_to "My group", group_path(current_user.groups.first), class: "nav-link" %>
+                      </li>
+                    <% end %>
+          <% end %>
           <li class="nav-item">
             <%= link_to "Invitations", "/dashboard", class: "nav-link" %>
           </li>
