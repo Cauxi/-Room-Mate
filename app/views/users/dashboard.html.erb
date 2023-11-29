@@ -15,7 +15,7 @@
               <%= link_to user_path(member.user) do %>
                     <h5> <%= member.user.first_name %> <%= member.user.last_name %></h5>
               <% end %>
-              <h6>Wants to enter your <%= member.group.name %></h6>
+              <h6>Wants to enter your <%= link_to member.group.name, group_path(member.group) %></h6>
               <p> Current status from this member: <strong><%= member.status %></strong>.</p>
               <% if member.status == "pending" %>
                 <p> You want to: <%= link_to "Heart", accept_path(member), data: {turbo_method: :patch}  %> or <%= link_to "X", reject_path(member), data: {turbo_method: :patch} %> ?</p>
