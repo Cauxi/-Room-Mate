@@ -1,5 +1,9 @@
 <h2><%= @group.name %></h2>
 
-<%= simple_form_for [@group, @member] do |f| %>
-  <%= f.submit "Heart", class: "btn btn-dark" %>
+<% if  @group.members[0]["user_id"] == current_user.id %>
+  <p>Welcome to your group</p>
+<% else %>
+  <%= simple_form_for [@group, @member] do |f| %>
+    <%= f.submit "Heart", class: "btn btn-dark" %>
+  <% end %>
 <% end %>
