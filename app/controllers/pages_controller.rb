@@ -25,6 +25,7 @@ class PagesController < ApplicationController
         count += group.members.count { |member| member.status == "pending" }
       end
       @members_pending = count
+      @sum = current_user.members.count { |member| member.status == "pending" }
     end
   end
 end

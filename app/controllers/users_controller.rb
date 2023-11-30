@@ -7,6 +7,7 @@ class UsersController < ApplicationController
       count += group.members.count { |member| member.status == "pending" }
     end
     @members_pending = count
+    @sum = current_user.members.count { |member| member.status == "pending" }
   end
 
   def dashboard
@@ -18,6 +19,8 @@ class UsersController < ApplicationController
       count += group.members.count { |member| member.status == "pending" }
     end
     @members_pending = count
+
+    @sum = current_user.members.count { |member| member.status == "pending" }
   end
 
 private
