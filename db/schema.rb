@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_28_151357) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_30_125321) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -28,6 +28,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_28_151357) do
     t.bigint "group_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "invited"
     t.index ["group_id"], name: "index_members_on_group_id"
     t.index ["user_id"], name: "index_members_on_user_id"
   end
@@ -47,6 +48,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_28_151357) do
     t.string "description"
     t.string "gender"
     t.string "nickname"
+    t.string "tags"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
