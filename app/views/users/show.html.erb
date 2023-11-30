@@ -8,6 +8,13 @@
 </ul>
 
 <% if current_user.groups.empty? == false %>
-  <p>Invite <%= @user.first_name %> to:</p>
-  <%= button_to current_user.groups[0].name,  new_member_user_path(@user.nickname), method: :post %>
+  <% if @user.groups.empty? == false %>
+    <p></p>
+  <% elsif @user.members.empty? == true %>
+    <p>Invite <%= @user.first_name %> to:</p>
+    <%= button_to current_user.groups[0].name,  new_member_user_path(@user.nickname), method: :post %>
+  <% elsif @user.members.first.status != "accepted" %>
+    <p>Invite <%= @user.first_name %> to:</p>
+    <%= button_to current_user.groups[0].name,  new_member_user_path(@user.nickname), method: :post %>
+  <% end %>
 <% end %>
