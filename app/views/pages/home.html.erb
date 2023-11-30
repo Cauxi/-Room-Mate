@@ -1,46 +1,16 @@
-<body>
-
-<div class="container d-flex justify-content-between">
- <div class="card-image">
-  <div class="row justify-content-center">
-    <div class="col-12 col-lg-6">
-    </div>
+<div class="row justify-content-center">
+  <div class="col-sm-8 my-3">
+    <%= form_with url: root_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Type a keyword"
+        %>
+      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+    <% end %>
   </div>
 </div>
-<div class="main w-100 m-0">
-    <div class="main-image">
-      <%= image_tag("avatar1.png.jpg", class:"home-image") %>
-  <div class="card-image-infos">
-    <div>
-      <h1>Natcha, 24</h1>
-      <h2>Porto, Portugal</h2>
-      <h3>About me:</h3>
-      <p>It can be pretty intimidating to introduce yourself to a girl, especially if you really like her. The most important thing is that you work up your courage and get it over with. Don't build the situation up in your head, don't fantasize about false expectations, and don't wait so long that you miss your chance.</p>
-    <h4>Interests</h4>
-    <div class="interests">
-    <p>Music</p>
-    <p>Books</p>
-    <p>Gym</p>
-    <p>Cinema</p>
-    <p>Animals</p>
-    <p>Dance</p>
-    </div>
-    </div>
-    <h1 class="card-image-pricing"></h1>
-  </div>
-</div>
-<% @groups.each do |group| %>
-  <ul>
-    <li><%= group.name %></li>
-  </ul>
-<% end %>
 
-<% @users_show.each do |x| %>
-  <ul>
-    <li><%= x.email %></li>
-  </ul>
-<% end %>
-</body>
 <% if current_user %>
   <% if current_user.groups.empty? %>
     <% @groups.each do |group| %>
