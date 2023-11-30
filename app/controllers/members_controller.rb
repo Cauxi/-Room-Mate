@@ -10,6 +10,7 @@ class MembersController < ApplicationController
     @member = Member.new
     @member.group = @group
     @member.user = current_user
+    @member.invited = current_user.id
     if @member.save
       redirect_to root_path
     else
@@ -23,6 +24,7 @@ class MembersController < ApplicationController
     @member = Member.new
     @member.group = @group
     @member.user = @user[0]
+    @member.invited = current_user.id
     if @member.save
       redirect_to root_path
     else
