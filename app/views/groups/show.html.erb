@@ -1,13 +1,30 @@
-<h2><%= @group.name %></h2>
+<h1><%= @group.name %></h1>
 
 <% if @group.user_id == current_user.id %>
   <p>Welcome to your group</p>
 <% else %>
-  <% unless @is_user_member%>
+  <% if current_user.members.empty? == false %>
+    <% if current_user.members.first.status == "accepted" %>
+      <p>Welcome to your group</p>
+    <% end %>
+  <% else %>
     <%= simple_form_for [@group, @member] do |f| %>
       <%= f.submit "Heart", class: "btn btn-dark" %>
     <% end %>
-  <% else %>
-    <p>Welcome to your group</p>
   <% end %>
+<% end %>
+
+
+
+<h2>Members of this group</h2>
+  <ul>
+    <li><%= link_to User.find(@group.user_id).first_name, user_path(User.find(@group.user_id)) %></li>
+  </ul>
+
+<% @colection.each do |id| %>
+    <ul>
+        <% if User.find(id).members.first.status == "accepted" %>
+          <li><%= link_to User.find(id).first_name, user_path(id) %></li>
+        <% end %>
+    </ul>
 <% end %>
