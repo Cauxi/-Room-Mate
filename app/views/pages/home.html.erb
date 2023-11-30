@@ -22,8 +22,11 @@
     <% @users_show.each do |x| %>
       <ul>
         <li><%= link_to x.first_name, user_path(x) %></li>
+        <li><%= x.location%> :<%= x.tags %></li>
+
       </ul>
     <% end %>
+    <p><%= current_user.tags %></p>
   <% end %>
 <% else %>
   <h1>We have to define what to show on Home if not signed in</h1>

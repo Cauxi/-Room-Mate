@@ -3,7 +3,13 @@ class PagesController < ApplicationController
 
   def home
     @groups = Group.all
-    @users = User.all
+    # @users = User.all
+    # @tags = current_user.tags.split(",")
+    @users = User.where(location: current_user.location)
+    # @users = User.where(location: current_user.location).where()
+    # @users = User.where(location: current_user.location).select do |user|
+    #   User.where(user.tags.split(",") & current_user.tags.split(",")).any?
+    # end
 
     if params[:query].present?
       sql_subquery = "name ILIKE :query"
