@@ -7,5 +7,12 @@ class PagesController < ApplicationController
     @users_show = @users.select do |user|
       user.groups.empty? == true
     end
+    if current_user
+      count = 0
+      current_user.groups.each do |group|
+        count += group.members.count { |member| member.status == "pending" }
+      end
+      @members_pending = count
+    end
   end
 end

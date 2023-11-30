@@ -41,3 +41,20 @@
   </ul>
 <% end %>
 </body>
+<% if current_user %>
+  <% if current_user.groups.empty? %>
+    <% @groups.each do |group| %>
+      <ul>
+        <li><%= link_to group.name, group_path(group) %></li>
+      </ul>
+    <% end %>
+  <% else %>
+    <% @users_show.each do |x| %>
+      <ul>
+        <li><%= link_to x.first_name, user_path(x) %></li>
+      </ul>
+    <% end %>
+  <% end %>
+<% else %>
+  <h1>We have to define what to show on Home if not signed in</h1>
+<% end %>

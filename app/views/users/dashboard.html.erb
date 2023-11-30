@@ -1,5 +1,43 @@
-  <h2>Create your group</h2>
-  <%= link_to "Create your group", new_group_path %>
+<% if current_user.groups.empty? %>
+  <h2>Check the status of your invitations</h2>
+  <% @members.each do |member| %>
+    <ul>
+      <li>Your join request to <%= member.group.name %> is: <strong><%= member.status %></strong>.</li>
+      <% if member.status == "accepted" %>
+        <%= link_to member.group.name, group_path(member.group) %>
+      <% end %>
+    </ul>
+  <% end %>
+  <h2>Manage Your Invitations</h2>
+  <% @members.each do |member| %>
+       <p><%=  User.find(Group.find(member.group_id).user_id).first_name %> wants to invite you to join his <%= Group.find(member.group_id).name %>.</p>
+       <p> Current status from this member: <strong><%= member.status %></strong>.</p>
+        <% if member.status == "pending" %>
+          <p> You want to: <%= link_to "Heart", accept_path(member), data: {turbo_method: :patch}  %> or <%= link_to "X", reject_path(member), data: {turbo_method: :patch} %> ?</p>
+        <% else %>
+          <p> The requester joined your group.</p>
+        <% end %>
+   <% end %>
+<% else %>
+  <h2>Manage Your Invitations</h2>
+  <% @groups.each do |group| %>
+    <% group.members.each do |member| %>
+      <%= link_to user_path(member.user) do %>
+            <h5> <%= member.user.first_name %> <%= member.user.last_name %></h5>
+      <% end %>
+      <h6>Wants to enter your <%= link_to member.group.name, group_path(member.group) %></h6>
+      <p> Current status from this member: <strong><%= member.status %></strong>.</p>
+        <% if member.status == "pending" %>
+          <p> You want to: <%= link_to "Heart", accept_path(member), data: {turbo_method: :patch}  %> or <%= link_to "X", reject_path(member), data: {turbo_method: :patch} %> ?</p>
+        <% else %>
+          <p> The requester joined your group.</p>
+        <% end %>
+    <% end %>
+  <% end %>
+<% end %>
 
 
-<h2>Manage Your Invitations</h2>
+<% if current_user.groups.empty? && current_user.members.first == nil %>
+  <h6>Create your group</h6>
+  <%= link_to "Start a new group", new_group_path %>
+<% end %>

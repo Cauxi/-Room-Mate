@@ -6,9 +6,23 @@ class MembersController < ApplicationController
   end
 
   def create
-    @member = Member.new(params_member)
+    @group = Group.find(params[:group_id])
+    @member = Member.new
     @member.group = @group
     @member.user = current_user
+    if @member.save
+      redirect_to root_path
+    else
+      render :new, status: unprocessable_entity
+    end
+  end
+
+  def new_member
+    @group = Group.find(current_user.groups[0].id)
+    @user = User.where(nickname: params[:nickname])
+    @member = Member.new
+    @member.group = @group
+    @member.user = @user[0]
     if @member.save
       redirect_to root_path
     else
@@ -22,7 +36,7 @@ class MembersController < ApplicationController
     @member.save
     redirect_to dashboard_path
   end
-  
+
   def reject
     @member = Member.find(params[:id])
     @member.status = "rejected"
@@ -36,9 +50,4 @@ class MembersController < ApplicationController
   def set_group
     @group = Group.find(params[:group_id])
   end
-
-  def params_member
-    params.require(:member).permit(:status)
-  end
-
 end
