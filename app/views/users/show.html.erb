@@ -5,6 +5,9 @@
 <li><%= @user.age %></li>
 <li><%= @user.description %></li>
 <li><%= @user.location %></li>
+<p><%= @user.photo.attached? %></p>
+
+<%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
 </ul>
 
 <% if current_user.groups.empty? == false %>
