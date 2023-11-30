@@ -17,7 +17,7 @@
 
             <% if current_user.groups.first == nil %>
                 <% if current_user.members.first != nil %>
-                    <% if current_user.members.first["user_id"] == current_user.id %>
+                    <% if current_user.members.first.status == "accepted" %>
                       <li class="nav-item active">
                         <%= link_to "My group", group_path(current_user.members.first["group_id"]), class: "nav-link" %>
                       </li>
