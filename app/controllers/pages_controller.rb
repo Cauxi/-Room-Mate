@@ -6,7 +6,6 @@ class PagesController < ApplicationController
     @users = User.all
 
     if params[:query].present?
-      sql_subquery = "name ILIKE :query"
       @groups = @groups.where("name ILIKE ?", "%#{params[:query]}%")
     end
 
