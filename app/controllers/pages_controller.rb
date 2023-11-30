@@ -10,11 +10,6 @@ class PagesController < ApplicationController
       @groups = @groups.where("name ILIKE ?", "%#{params[:query]}%")
     end
 
-    # if params[:query].present?
-    #   sql_subquery = "tags ILIKE :query"
-    #   @users = @users.where("tags ILIKE ?", "%#{params[:query]}%")
-    # end
-
     if params[:query].present?
       sql_subquery = "tags @@ :query OR location @@ :query"
       @users = @users.where(sql_subquery, query: "%#{params[:query]}%")
