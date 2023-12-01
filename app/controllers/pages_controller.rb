@@ -5,7 +5,12 @@ class PagesController < ApplicationController
     @groups = Group.all
     # @users = User.all
     # @tags = current_user.tags.split(",")
-    @users = User.where(location: current_user.location)
+    if user_signed_in?
+      @users = User.where(location: current_user.location)
+      @users_show = @users.select do |user|
+        user.groups.empty? == true
+      end
+    end
     # @users = User.where(location: current_user.location).where()
     # @users = User.where(location: current_user.location).select do |user|
     #   User.where(user.tags.split(",") & current_user.tags.split(",")).any?
@@ -18,10 +23,6 @@ class PagesController < ApplicationController
     if params[:query].present?
       sql_subquery = "tags @@ :query OR location @@ :query"
       @users = @users.where(sql_subquery, query: "%#{params[:query]}%")
-    end
-
-    @users_show = @users.select do |user|
-      user.groups.empty? == true
     end
 
     if current_user

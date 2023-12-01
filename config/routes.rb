@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :groups, only: [:new, :create, :show, :destroy] do
-    resources :members, only: [:new, :create]
+    resources :members, only: [:new, :create, :destroy]
     resources :chatrooms, only: [:new, :create]
   end
   resources :chatrooms, only: :show do
