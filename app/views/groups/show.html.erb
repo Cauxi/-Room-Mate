@@ -43,9 +43,11 @@
 <% end %>
 
 <% if @group.user_id != current_user.id %>
-  <% if current_user.members.first.status == "accepted" %>
-    <% if @group.chatroom != nil %>
-      <%= link_to "Open chat", chatroom_path(@group.chatroom) %>
+  <% if current_user.members.empty? == false %>
+    <% if current_user.members.first.status == "accepted" %>
+      <% if @group.chatroom != nil %>
+        <%= link_to "Open chat", chatroom_path(@group.chatroom) %>
+      <% end %>
     <% end %>
   <% end %>
 <% end %>
