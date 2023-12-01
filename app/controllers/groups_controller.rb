@@ -13,6 +13,7 @@ class GroupsController < ApplicationController
     @group.members.each do |element|
       @colection.push(element["user_id"])
     end
+    @sum = current_user.members.count { |member| member.status == "pending" }
   end
 
   def new
@@ -22,6 +23,7 @@ class GroupsController < ApplicationController
       count += group.members.count { |member| member.status == "pending" }
     end
     @members_pending = count
+    @sum = current_user.members.count { |member| member.status == "pending" }
   end
 
   def create

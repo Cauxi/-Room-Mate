@@ -12,7 +12,6 @@ class PagesController < ApplicationController
     # end
 
     if params[:query].present?
-      sql_subquery = "name ILIKE :query"
       @groups = @groups.where("name ILIKE ?", "%#{params[:query]}%")
     end
 
@@ -31,6 +30,7 @@ class PagesController < ApplicationController
         count += group.members.count { |member| member.status == "pending" }
       end
       @members_pending = count
+      @sum = current_user.members.count { |member| member.status == "pending" }
     end
   end
 end

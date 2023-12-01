@@ -28,3 +28,24 @@
         <% end %>
     </ul>
 <% end %>
+
+
+<% if @group.user_id == current_user.id %>
+ <% if @group.chatroom == nil %>
+  <%= link_to "Create a new chat", new_group_chatroom_path(@group) %>
+ <% end %>
+<% end %>
+
+<% if @group.user_id == current_user.id %>
+ <% if @group.chatroom != nil %>
+    <%= link_to "Open chat", chatroom_path(@group.chatroom) %>
+ <% end %>
+<% end %>
+
+<% if @group.user_id != current_user.id %>
+  <% if current_user.members.first.status == "accepted" %>
+    <% if @group.chatroom != nil %>
+      <%= link_to "Open chat", chatroom_path(@group.chatroom) %>
+    <% end %>
+  <% end %>
+<% end %>
