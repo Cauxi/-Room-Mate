@@ -8,7 +8,7 @@ puts "DB cleared"
 
 puts "Creating users..."
 
-file1 = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg")
+file1 = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1697011172/cil7pa2pv76krqejflyr.jpg")
 user1 = User.create(first_name: "Tiago", last_name: "Neto", nickname: "tiaguito", age: 27, location: "Porto", description: "Surfer, travel and foodie lover", email: "tiago@lewagon.com", password: "123456", gender: "Male", tags: "surf, travel, Foodie")
 user1.photo.attach(io: file1, filename: "nes.png", content_type: "image/png")
 user1.save
