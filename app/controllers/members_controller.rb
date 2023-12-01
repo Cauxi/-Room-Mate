@@ -46,6 +46,12 @@ class MembersController < ApplicationController
     redirect_to dashboard_path
   end
 
+  def destroy
+    @member = Member.find(current_user.members.first.id)
+    @member.destroy
+    # No need for app/views/restaurants/destroy.html.erb
+    redirect_to root_path, status: :see_other
+  end
 
   private
 
