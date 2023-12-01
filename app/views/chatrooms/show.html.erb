@@ -1,3 +1,4 @@
+<div class="container">
 <% if current_user.groups.empty? == false %>
   <%= link_to "Back to Group", group_path(current_user.groups.first) %>
 <% elsif current_user.members.empty? == false %>
@@ -28,3 +29,4 @@
   %>
   <%= f.submit "Send", class: "btn btn-primary mb-3" %>
 <% end %>
+</div>

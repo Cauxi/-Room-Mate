@@ -1,3 +1,4 @@
+<div class="container">
 <div class="container d-flex justify-content-between">
  <div class="card-image">
   <div class="row justify-content-center">
@@ -49,3 +50,4 @@
 <% elsif @user.members.empty? == false %>
   <%= link_to "Back to Group", group_path(@user.members.first.group_id) %>
 <% end %>
+</div>

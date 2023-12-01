@@ -1,3 +1,4 @@
+<div class="container">
 <% if current_user.groups.empty? %>
   <h2>Check the status of your invitations</h2>
   <% @members.each do |member| %>
@@ -60,3 +61,4 @@
   <h6>Create your group</h6>
   <%= link_to "Start a new group", new_group_path %>
 <% end %>
+</div>
