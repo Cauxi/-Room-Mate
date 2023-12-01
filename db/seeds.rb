@@ -29,6 +29,6 @@ user4.photo.attach(io: file4, filename: "alberto.png", content_type: "image/png"
 user4.save
 
 file5 = URI.open("https://www.latin-wife.com/images/south-american-women-5.jpg")
-user5 = User.create(first_name: "Maria", last_name: "Carlota", nickname: "Mdiaz", age: 28, location: "Porto", description: "I want to go and live in Porto to study, but since I'm from South America I don't have much money, I want to find likeminded people to share a house with. Invite me with you like to surf :)", email: "maria@lewagon.com", password: "123456", gender: "Female", tags: "Surf, Yoga, Music")
+user5 = User.create(first_name: "Maria", last_name: "Diaz", nickname: "Mdiaz", age: 28, location: "Porto", description: "I want to go and live in Porto to study. I'm from South America and I want to find likeminded people to share a house with. Invite me with you like to surf :)", email: "maria@lewagon.com", password: "123456", gender: "Female", tags: "Surf, Yoga, Music")
 user5.photo.attach(io: file5, filename: "maria.png", content_type: "image/png")
 user5.save
