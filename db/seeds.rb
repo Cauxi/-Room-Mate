@@ -24,7 +24,7 @@ user3.photo.attach(io: file3, filename: "vasco.png", content_type: "image/png")
 user3.save
 
 file4 = URI.open("https://media.istockphoto.com/id/1306109857/photo/portuguese-senior-man-in-porto-portugal.jpg?s=612x612&w=0&k=20&c=oeJtLxsIfX0yW1AjBf7MfLtaWeRP3EgwWc8bC8bP64Y=")
-user4 = User.create(first_name: "Alberto", last_name: "Rosa", nickname: "bertinho83", age: 45, location: "Porto", description: "Lost everything, now I start a new life as a boxing coach.", email: "alberto@lewagon.com", password: "123456", gender: "Male", tags: "Boxing, Foodie, Nightlife")
+user4 = User.create(first_name: "Alberto", last_name: "Rosa", nickname: "bertinho83", age: 66, location: "Porto", description: "Lost everything, now I start a new life as a boxing coach.", email: "alberto@lewagon.com", password: "123456", gender: "Male", tags: "Boxing, Foodie, Nightlife")
 user4.photo.attach(io: file4, filename: "alberto.png", content_type: "image/png")
 user4.save
 
