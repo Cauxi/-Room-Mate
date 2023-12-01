@@ -6,8 +6,7 @@
 <li><%= @user.description %></li>
 <li><%= @user.location %></li>
 <li><%= @user.tags %></li>
-<p><%= @user.photo.attached? %></p>
-<%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
+<%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill if @user.photo.attached?%>
 </ul>
 
 <% if current_user.groups.empty? == false %>
@@ -20,4 +19,11 @@
     <p>Invite <%= @user.first_name %> to:</p>
     <%= button_to current_user.groups[0].name,  new_member_user_path(@user.nickname), method: :post %>
   <% end %>
+<% end %>
+
+
+<% if @user.groups.empty? == false %>
+  <%= link_to "Back to Group", group_path(@user.groups.first) %>
+<% elsif @user.members.empty? == false %>
+  <%= link_to "Back to Group", group_path(@user.members.first.group_id) %>
 <% end %>
