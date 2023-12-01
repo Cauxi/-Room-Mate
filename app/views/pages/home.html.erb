@@ -21,8 +21,11 @@
     <% @users_show.each do |x| %>
       <ul>
         <li><%= link_to x.first_name, user_path(x) %></li>
+        <li><%= x.location%> :<%= x.tags %></li>
+
       </ul>
     <% end %>
+    <p><%= current_user.tags %></p>
   <% end %>
 <% else %>
   <h1>Sign up/in to start!</h1>
