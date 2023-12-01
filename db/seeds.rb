@@ -12,6 +12,6 @@ user1 = User.create(first_name: "Tiago", last_name: "Neto", nickname: "tiaguito"
 user1.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 user1.save
 
-# User.create(first_name: "Carlos", last_name: "Coelho", nickname: "carlitos", age: 25, location: "Setubal", description: "Cats, music and computers", email: "carlos@lewagon.com", password: "123456", gender: "Male", tags: "cats, music, computers")
-# User.create(first_name: "Catarina", last_name: "Furtado", nickname: "catarinita", age: 33, location: "Oslo", description: "Sport, travel and foodie lover", email: "catarina@lewagon.com", password: "123456", gender: "Female", tags: "sport, travel, foodie")
-# User.create(first_name: "Vasco", last_name: "Pereira", nickname: "vasquito", age: 21, location: "Porto", description: "Games, foodie lover and nightlife", email: "vasco@lewagon.com", password: "123456", gender: "Male", tags: "games, foodie, nightlife")
+ #User.create(first_name: "Carlos", last_name: "Coelho", nickname: "carlitos", age: 25, location: "Setubal", description: "Cats, music and computers", email: "carlos@lewagon.com", password: "123456", gender: "Male", tags: "cats, music, computers")
+ #User.create(first_name: "Catarina", last_name: "Furtado", nickname: "catarinita", age: 33, location: "Oslo", description: "Sport, travel and foodie lover", email: "catarina@lewagon.com", password: "123456", gender: "Female", tags: "sport, travel, foodie")
+#User.create(first_name: "Vasco", last_name: "Pereira", nickname: "vasquito", age: 21, location: "Porto", description: "Games, foodie lover and nightlife", email: "vasco@lewagon.com", password: "123456", gender: "Male", tags: "games, foodie, nightlife")

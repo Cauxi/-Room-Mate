@@ -2,6 +2,12 @@ class ChatroomsController < ApplicationController
   def show
     @chatroom = Chatroom.find(params[:id])
     @message = Message.new
+    count = 0
+    current_user.groups.each do |group|
+      count += group.members.count { |member| member.status == "pending" }
+    end
+    @members_pending = count
+    @sum = current_user.members.count { |member| member.status == "pending" }
   end
 
   def new
