@@ -2,6 +2,8 @@
   margin: 30px auto;
   text-align: center;
   font-family: 'Roboto', sans-serif;
+  color: black;
+  opacity: 0.8;
 }
 
 .dashboard-container h2 {
@@ -15,4 +17,16 @@
   margin: 15px 15px;
   padding: 5px 0;
   color: white;
+}
+
+.dashboard-container h5 {
+  color: white;
+}
+
+.dashboard-container a {
+  color: white;
+}
+
+.link-heart p {
+  font-size: 25px;
 }
