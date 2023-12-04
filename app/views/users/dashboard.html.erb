@@ -1,33 +1,39 @@
 
 
 <% if current_user.groups.empty? %>
-  <h2>Check the status of your invitations</h2>
-  <% @members.each do |member| %>
+  <div class="dashboard-container">
+    <h2>Check the status of your invitations</h2>
+    <% @members.each do |member| %>
 
-    <% if member.invited == current_user.id %>
-      <ul>
-          <li>Your join request to <%= member.group.name %> is: <strong><%= member.status %></strong>.</li>
-          <% if member.status == "accepted" %>
-            <%= link_to member.group.name, group_path(member.group) %>
-          <% end %>
-      </ul>
+      <% if member.invited == current_user.id %>
+        <div class="dashboard-card">
+            <p>Your join request to <%= member.group.name %> is: <strong><%= member.status %></strong>.</p>
+            <% if member.status == "accepted" %>
+              <%= link_to member.group.name, group_path(member.group) %>
+            <% end %>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
 
-  <h2>Manage Your Invitations</h2>
-  <% @members.each do |member| %>
-    <% if member.invited != current_user.id %>
-       <p><%=  User.find(Group.find(member.group_id).user_id).first_name %> wants to invite you to join his <%= link_to Group.find(member.group_id).name, group_path(Group.find(member.group_id)) %>.</p>
-       <p> Current status from this invitation: <strong><%= member.status %></strong>.</p>
-        <% if member.status == "pending" %>
-            <p> You want to: <%= link_to "Heart", accept_path(member), data: {turbo_method: :patch}  %> or <%= link_to "X", reject_path(member), data: {turbo_method: :patch} %> ?</p>
-          <% if member.status == "accepted" %>
-            <p> You joined the group.</p>
-          <% elsif member.status == "rejected" %>
-            <p> The requester will be notified about your decision.</p>
-          <% end %>
-        <% end %>
-    <% end %>
+    <h2>Manage Your Invitations</h2>
+    <% @members.each do |member| %>
+      <% if member.invited != current_user.id %>
+        <div class="dashboard-card">
+          <p><%=  User.find(Group.find(member.group_id).user_id).first_name %> invited you to join his <strong><%= link_to Group.find(member.group_id).name, group_path(Group.find(member.group_id)) %></strong>.</p>
+          <p> Current status: <strong><%= member.status %></strong>.</p>
+            <% if member.status == "pending" %>
+              <div class="link-heart">
+                <p> You want to: <%= link_to accept_path(member), data: {turbo_method: :patch} do %> <i class="fa-solid fa-heart" style="color: #3b034f;"></i><% end %> or <%= link_to reject_path(member), data: {turbo_method: :patch} do %><i class="fa-solid fa-rectangle-xmark" style="color: #3b034f;"></i><% end %> ?</p>
+              </div>
+              <% if member.status == "accepted" %>
+                <p> You joined the group.</p>
+              <% elsif member.status == "rejected" %>
+                <p> The requester will be notified about your decision.</p>
+              <% end %>
+            <% end %>
+        </div>
+      <% end %>
+  </div>
   <% end %>
 
 
@@ -40,7 +46,7 @@
           <% if member.invited == current_user.id %>
             <div class="dashboard-card">
             <%= link_to user_path(member.user) do %>
-              <h5> <%= member.user.first_name %> <%= member.user.last_name %></h5>
+              <h5> <strong><%= member.user.first_name %> <%= member.user.last_name %></strong></h5>
             <% end %>
             <h6>Was invited to enter your <%= link_to member.group.name, group_path(member.group) %> group.</h6>
             <p> Current status from this member: <strong><%= member.status %></strong>.</p>
