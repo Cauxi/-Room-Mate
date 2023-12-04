@@ -18,13 +18,19 @@
 
 <h2>Members of this group</h2>
   <ul>
-    <li><%= link_to User.find(@group.user_id).first_name, user_path(User.find(@group.user_id)) %></li>
+    <li>
+      <%= link_to user_path(@group.user) do%>
+        <%= cl_image_tag @group.user.photo.key,class: "avatar", crop: :fill if @group.user.photo.attached? %>
+      <% end %>
+    </li>
   </ul>
 
 <% @colection.each do |id| %>
     <ul>
         <% if User.find(id).members.first.status == "accepted" %>
-          <li><%= link_to User.find(id).first_name, user_path(id) %></li>
+          <li><%= link_to user_path(id) do %>
+            <%= cl_image_tag User.find(id).photo.key,class: "avatar" %>
+          <% end %></li>
         <% end %>
     </ul>
 <% end %>

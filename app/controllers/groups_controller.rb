@@ -9,10 +9,12 @@ class GroupsController < ApplicationController
     end
     @members_pending = count
     @is_user_member = isUserMemberOfGroup
+
     @colection = []
     @group.members.each do |element|
       @colection.push(element["user_id"])
     end
+
     @sum = current_user.members.count { |member| member.status == "pending" }
   end
 
