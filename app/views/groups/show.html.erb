@@ -18,7 +18,7 @@
 
 <h2>Members of the group</h2>
 
-    <div class="pic">
+    <div>
       <%= link_to user_path(@group.user) do%>
         <%= cl_image_tag @group.user.photo.key,class: "avatar" if @group.user.photo.attached? %>
       <% end %>
@@ -28,7 +28,7 @@
 <% @colection.each do |id| %>
 
         <% if User.find(id).members.first.status == "accepted" %>
-          <div class="pic"><%= link_to user_path(id) do %>
+          <div><%= link_to user_path(id) do %>
             <%= cl_image_tag User.find(id).photo.key,class: "avatar" %>
           <% end %></div>
         <% end %>
