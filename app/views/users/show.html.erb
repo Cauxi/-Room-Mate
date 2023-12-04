@@ -8,8 +8,29 @@
 <div class="main w-100 m-0">
     <div class="main-image">
       <div class="mt-3">
-        <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill if @user.photo.attached? %>
+      <div id="carouselExampleIndicators" class="carousel slide">
+        <div class="carousel-indicators">
+          <% @user.photos.each_with_index do |photo, index| %>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%= index %>" class="<%= 'active' if index.zero? %>" aria-current="true" aria-label="Slide <%= index + 1 %>"></button>
+          <% end %>
+        </div>
+        <div class="carousel-inner">
+          <% @user.photos.each_with_index do |photo, index| %>
+            <div class="carousel-item <%= 'active' if index.zero? %>">
+              <%= cl_image_tag photo.key, height: 450, width: 400, crop: :fill %>
+            </div>
+          <% end %>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
+    </div>
   <div class="card-image-infos">
     <div>
       <h1><%=@user.first_name %> <%= @user.last_name %>, <%= @user.age %></h1>
@@ -49,3 +70,6 @@
 <% elsif @user.members.empty? == false %>
   <%= link_to "Back to Group", group_path(@user.members.first.group_id) %>
 <% end %>
+</div>
+</div>
+</div>
