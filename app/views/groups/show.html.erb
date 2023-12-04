@@ -15,17 +15,24 @@
   <% end %>
 <% end %>
 
-<h2>Members of this group</h2>
-  <ul>
-    <li><%= link_to User.find(@group.user_id).first_name, user_path(User.find(@group.user_id)) %></li>
-  </ul>
+
+<h2>Members of the group</h2>
+
+    <div class="pic">
+      <%= link_to user_path(@group.user) do%>
+        <%= cl_image_tag @group.user.photo.key,class: "avatar" if @group.user.photo.attached? %>
+      <% end %>
+    </div>
+
 
 <% @colection.each do |id| %>
-    <ul>
+
         <% if User.find(id).members.first.status == "accepted" %>
-          <li><%= link_to User.find(id).first_name, user_path(id) %></li>
+          <div class="pic"><%= link_to user_path(id) do %>
+            <%= cl_image_tag User.find(id).photo.key,class: "avatar" %>
+          <% end %></div>
         <% end %>
-    </ul>
+
 <% end %>
 
 
@@ -40,23 +47,22 @@
     <%= link_to "Open chat", chatroom_path(@group.chatroom) %>
  <% end %>
 <% end %>
-
 <% if @group.user_id != current_user.id %>
   <% if current_user.members.empty? == false %>
     <% if current_user.members.first.status == "accepted" %>
       <% if @group.chatroom != nil %>
-        <%= link_to "Open chat", chatroom_path(@group.chatroom) %>
+        <%= link_to "Open chat", chatroom_path(@group.chatroom), class: "btn" %>
       <% end %>
     <% end %>
   <% end %>
 <% end %>
-
 <% if current_user.members.empty? == false %>
+
   <% if current_user.members.first.group_id == @group.id && current_user.members.first.status == "accepted" %>
-    <%= link_to "Leave this group",
-   group_member_path(@current_user.members.first),
+    <%= link_to "Leave this group", 
+    group_member_path(@current_user.members.first), class: "btn",
+
   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
 %>
-
   <% end %>
 <% end %>
