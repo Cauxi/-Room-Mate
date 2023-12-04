@@ -10,22 +10,51 @@
     <% end %>
   </div>
 </div>
-<% if current_user %>
-  <% if current_user.groups.empty? %>
-    <% @groups.each do |group| %>
-      <ul>
-        <li><%= link_to group.name, group_path(group) %></li>
-      </ul>
+
+  <% if current_user %>
+    <% if current_user.groups.empty? %>
+      <% @groups.each do |group| %>
+        <ul>
+          <li><%= link_to group.name, group_path(group) %></li>
+        </ul>
+      <% end %>
+    <% else %>
+      <% @users_show.each do |x| %>
+        <div class="album py-5 bg-light">
+          <div class= "container">
+            <div class= "row">
+              <div class="col-md-4">
+                <%= link_to user_path(x) do %>
+               <div class="card-trip" style="position: relative;">
+                  <%= cl_image_tag x.photo.key, height: 450, width: 400, crop: :fill if x.photo.attached? %>
+                  <div id="user" style="position: absolute; top: 0; left: 0;"> <%= x.first_name %>, <%= x.age %></div>
+                  <div class="card-body">
+                    <h5 class="card-text">
+                      <% if x.gender == "Male" %>
+                        <%= link_to x.first_name, user_path(x) %>, <%= x.age %> <i class="fa-solid fa-mars"></i>
+                        <% else %>
+                          <%= link_to x.first_name, user_path(x) %> <i class="fa-solid fa-venus"></i>
+                      <% end %>
+                    </h5>
+                    <p class="card-tags m-3">
+                      <% x.tags.split(",").each do |tag| %>
+                        <ul>
+                          <li>
+                            <%= tag %>
+                          </li>
+                        </ul>
+                      <% end %>
+                    </p>
+                      <% end %>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
     <% end %>
   <% else %>
-    <% @users_show.each do |x| %>
-      <ul>
-        <li><%= link_to x.first_name, user_path(x) %></li>
-        <li><%= x.location%> :<%= x.tags %></li>
-
-      </ul>
-    <% end %>
+    <h1>Sign up/in to start!</h1>
   <% end %>
-<% else %>
-  <h1>Sign up/in to start!</h1>
-<% end %>
+</div>
