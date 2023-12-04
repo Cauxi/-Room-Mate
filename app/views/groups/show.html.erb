@@ -1,3 +1,4 @@
+
 <h1><%= @group.name %></h1>
 
 <% if @group.user_id == current_user.id %>
@@ -13,7 +14,6 @@
     <% end %>
   <% end %>
 <% end %>
-
 
 
 <h2>Members of the group</h2>
@@ -57,8 +57,11 @@
   <% end %>
 <% end %>
 <% if current_user.members.empty? == false %>
-  <% if current_user.members.first.group_id == @group.id %>
-    <%= link_to "Leave this group", group_member_path(@current_user.members.first), class: "btn",
+
+  <% if current_user.members.first.group_id == @group.id && current_user.members.first.status == "accepted" %>
+    <%= link_to "Leave this group", 
+    group_member_path(@current_user.members.first), class: "btn",
+
   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
 %>
   <% end %>

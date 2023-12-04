@@ -1,3 +1,4 @@
+
 <% if current_user.groups.empty? == false %>
   <%= link_to "Back to Group", group_path(current_user.groups.first) %>
 <% elsif current_user.members.empty? == false %>
@@ -5,7 +6,7 @@
 <% end %>
 
 
-<div class="container chatroom"
+<div class="container-chatroom"
   data-controller="chatroom-subscription"
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
 >
@@ -19,11 +20,17 @@
 </div>
 
 <%= simple_form_for [@chatroom, @message],
-  html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f|
+  html: {
+    class: "d-flex",
+    data: {
+      action: "turbo:submit-end->chatroom-subscription#resetForm",
+      controller: "chatroom-subscription"
+    }
+  } do |f|
 %>
   <%= f.input :content,
     label: false,
-    placeholder: "Message ##{@chatroom.name}",
+    placeholder: "Message #{@chatroom.name}",
     wrapper_html: {class: "flex-grow-1"}
   %>
   <%= f.submit "Send", class: "btn btn-primary mb-3" %>
