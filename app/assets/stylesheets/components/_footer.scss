@@ -1,7 +1,10 @@
 .footer {
   background: #F4F4F4;
-  height: 100px;
+  height: 50px;
   color: rgba(0,0,0,0.3);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
 .footer-links {
@@ -15,5 +18,19 @@
   opacity: 0.8;
   text-decoration: none;
   font-size: 24px;
-  padding: 0px 10px;
+  padding: 0 3px;
+}
+
+.notification {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+body {
+  min-height: 100vh;
+  margin-bottom: 79px;
+  max-width: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }

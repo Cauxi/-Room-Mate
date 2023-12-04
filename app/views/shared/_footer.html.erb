@@ -45,10 +45,14 @@
 
 
 
+            <div class="notification">
+              <% if current_user %>
+                <%= link_to dashboard_path do %> <i class="fa-solid fa-user"></i><% end %>
+                <%= link_to  "#{@members_pending}", "/dashboard", class: "nav-link" if @members_pending != 0 %>
+                <%= link_to  "#{@sum}", "/dashboard", class: "nav-link" if  @sum != 0 %>
+              <% end %>
+            </div>
 
-
-            <%= link_to dashboard_path do %> <i class="fa-solid fa-user"></i><% end %>
-
-          </div>
+     </div>
   </div>
 <% end %>
