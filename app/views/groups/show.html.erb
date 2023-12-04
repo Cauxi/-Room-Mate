@@ -20,14 +20,14 @@
 
     <div class="pic">
       <%= link_to user_path(@group.user) do%>
-        <%= cl_image_tag @group.user.photo.key,class: "avatar" if @group.user.photo.attached? %>
+        <%= cl_image_tag @group.user.photos.first.key,class: "avatar" if @group.user.photos.attached? %>
       <% end %>
     </div>
 
 <% @group.members.each do |member| %>
         <% if member.status == "accepted" %>
           <div class="pic"><%= link_to user_path(User.find(member.user_id)) do %>
-            <%= cl_image_tag User.find(member.user_id).photo.key,class: "avatar" %>
+            <%= cl_image_tag User.find(member.user_id).photos.key,class: "avatar" %>
           <% end %></div>
         <% end %>
 
