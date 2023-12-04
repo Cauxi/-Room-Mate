@@ -28,9 +28,10 @@
                 <%= link_to user_path(x) do %>
                <div class="card-trip" style="position: relative;">
                   <% if x.gender == "Male" %>
-                    <%= cl_image_tag x.photo.key, height: 450, width: 400, crop: :fill if x.photo.attached? %>
-                    <div id="user" style="position: absolute; top: 0; left: 0;"> <%= x.first_name %>, <%= x.age %> <i class="fa-solid fa-mars"></i></div>                  <% else %>
-                    <%= cl_image_tag x.photo.key, height: 450, width: 400, crop: :fill if x.photo.attached? %>
+                    <%= cl_image_tag x.photos.first.key, height: 450, width: 400, crop: :fill if x.photos.attached? %>
+                    <div id="user" style="position: absolute; top: 0; left: 0;"> <%= x.first_name %>, <%= x.age %> <i class="fa-solid fa-mars"></i></div>
+                  <% else %>
+                    <%= cl_image_tag x.photos.first.key, height: 450, width: 400, crop: :fill if x.photos.attached? %>
                     <div id="user" style="position: absolute; top: 0; left: 0;"> <%= x.first_name %>, <%= x.age %> <i class="fa-solid fa-venus"></i></div>
                   <% end %>
                   <div class="card-body">
