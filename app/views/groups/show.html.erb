@@ -5,8 +5,12 @@
   <p>Welcome to your group</p>
 <% else %>
   <% if current_user.members.empty? == false %>
-    <% if current_user.members.first.status == "accepted" %>
+    <% if current_user.members.where(:status => "accepted").exists? %>
       <p>Welcome to your group</p>
+    <% elsif current_user.members.where(:status => "accepted").exists? == false %>
+      <%= simple_form_for [@group, @member] do |f| %>
+        <%= f.submit "Heart", class: "btn btn-dark" %>
+      <% end %>
     <% end %>
   <% else %>
     <%= simple_form_for [@group, @member] do |f| %>
@@ -20,17 +24,16 @@
 
     <div class="pic">
       <%= link_to user_path(@group.user) do%>
-        <%= cl_image_tag @group.user.photo.key,class: "avatar" if @group.user.photo.attached? %>
+        <%= cl_image_tag @group.user.photos.first.key,class: "avatar" if @group.user.photos.attached? %>
       <% end %>
     </div>
 
 <% @group.members.each do |member| %>
         <% if member.status == "accepted" %>
-          <div class="pic"><%= link_to user_path(User.find(member.user_id)) do %>
-            <%= cl_image_tag User.find(member.user_id).photo.key,class: "avatar" %>
+          <div class="pic"><%= link_to user_path(member.user) do %>
+            <%= cl_image_tag member.user.photos.first.key,class: "avatar" %>
           <% end %></div>
         <% end %>
-
 <% end %>
 
 
