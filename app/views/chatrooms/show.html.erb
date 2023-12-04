@@ -1,7 +1,8 @@
+
 <% if current_user.groups.empty? == false %>
   <%= link_to "Back to Group", group_path(current_user.groups.first) %>
 <% elsif current_user.members.empty? == false %>
-  <%= link_to "Back to Group", group_path(current_user.members.first.group_id) %>
+  <%= link_to "Back to Group", group_path(current_user.members.first.group_id), class: "btn" %>
 <% end %>
 
 
