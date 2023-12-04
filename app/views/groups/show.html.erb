@@ -15,8 +15,6 @@
   <% end %>
 <% end %>
 
-
-
 <h2>Members of this group</h2>
   <ul>
     <li><%= link_to User.find(@group.user_id).first_name, user_path(User.find(@group.user_id)) %></li>
@@ -54,7 +52,7 @@
 <% end %>
 
 <% if current_user.members.empty? == false %>
-  <% if current_user.members.first.group_id == @group.id %>
+  <% if current_user.members.first.group_id == @group.id && current_user.members.first.status == "accepted" %>
     <%= link_to "Leave this group",
    group_member_path(@current_user.members.first),
   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}

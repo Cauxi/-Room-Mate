@@ -20,8 +20,11 @@
        <p> Current status from this invitation: <strong><%= member.status %></strong>.</p>
         <% if member.status == "pending" %>
             <p> You want to: <%= link_to "Heart", accept_path(member), data: {turbo_method: :patch}  %> or <%= link_to "X", reject_path(member), data: {turbo_method: :patch} %> ?</p>
-        <% else %>
-          <p> You joined the group.</p>
+          <% if member.status == "accepted" %>
+            <p> You joined the group.</p>
+          <% elsif member.status == "rejected" %>
+            <p> The requester will be notified about your decision.</p>
+          <% end %>
         <% end %>
     <% end %>
   <% end %>
