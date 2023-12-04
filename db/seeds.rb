@@ -1,7 +1,7 @@
 require "open-uri"
 
 puts "Cleaning database..."
-Messages.destroy_all
+Message.destroy_all
 Chatroom.destroy_all
 Member.destroy_all
 Group.destroy_all
