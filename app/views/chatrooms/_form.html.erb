@@ -1,11 +1,10 @@
-<h1>New chatroom</h1>
+  <h1>New chatroom</h1>
 
-  <%= simple_form_for [group, chatroom] do |f| %>
-    <div class="form-inputs">
-      <%= f.input :name %>
-    </div>
-    <div class="form-actions">
-      <%= f.submit "Create chat", class: "btn btn-dark" %>
-    </div>
-  <% end %>
-</div>
+    <%= simple_form_for [group, chatroom] do |f| %>
+      <div class="form-inputs">
+        <%= f.input :name %>
+      </div>
+      <div class="form-actions">
+        <%= f.submit "Create chat", class: "btn btn-dark" %>
+      </div>
+    <% end %>
