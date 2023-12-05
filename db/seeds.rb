@@ -17,7 +17,7 @@ user1.save
 
 file2 = URI.open("https://avatars.githubusercontent.com/u/107856581?v=4")
 file6 = URI.open("https://avatars.githubusercontent.com/u/66433133?v=4")
-user2 = User.create(first_name: "João", last_name: "Martins", nickname: "BigJ", age: 26, location: "Porto", description: "I love Le Wagon, it's the best company ever made, thank you Boris and Seb. Coma Bem is the best!", email: "joao@lewagon.com", password: "123456", gender: "Male", tags: "Gaming, Foodie, LH44")
+user2 = User.create(first_name: "João", last_name: "Martins", nickname: "BigJ", age: 26, location: "Porto", description: "I love Le Wagon, it's the best company ever made, thank you Boris and Seb. Coma Bem is the best!", email: "joao@lewagon.com", password: "123456", gender: "Male", tags: "Gaming, Foodie, LH44, WebDev")
 user2.photos.attach([
   {io: file2, filename: 'file1.png', content_type: 'image/png'},
   {io: file1, filename: 'file2.png', content_type: 'image/png'},
