@@ -224,6 +224,8 @@
   opacity: 0.9;
   font-weight: bold;
   margin-bottom: 5px;
+  display: flex;
+  align-items: center;
 }
 
 .tags-list ul {
@@ -249,4 +251,16 @@
 .top a {
   color: black;
   opacity: 0.9;
+}
+
+.new {
+  color: white;
+  background-color: rgb(221, 81, 242);
+  padding: 5px 5px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 14px;
+  position: absolute;
+  top: -14px;
+  left: -2px;
 }
