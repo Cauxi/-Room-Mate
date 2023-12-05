@@ -1,3 +1,4 @@
+//dashboard css -Tiago
 .dashboard-container {
   margin: 30px auto;
   text-align: center;
@@ -6,17 +7,29 @@
   opacity: 0.8;
 }
 
-.dashboard-container h2 {
+.dashboard-container h1 {
   font-weight: bold;
   font-size: 30px;
+}
+
+.h1-owner {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.h1-user {
+  margin-top: 30px;
+  margin-bottom: 20px;
 }
 
 .dashboard-card {
   border-radius: 10px;
   background-color: rgb(159, 117, 255);
-  margin: 15px 15px;
+  margin: 25px 15px;
   padding: 5px 0;
   color: white;
+  position: relative;
+  text-align: center;
 }
 
 .dashboard-container h5 {
@@ -29,4 +42,76 @@
 
 .link-heart p {
   font-size: 25px;
+}
+
+.dashboard-card-user {
+  border-radius: 10px;
+  background-color: rgb(159, 117, 255);
+  margin: 15px 15px;
+  padding: 5px 0;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.dashboard-create {
+  margin: 30px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.dashboard-create a {
+  color: white;
+  background-color: rgb(159, 117, 255);
+  padding: 10px 30px;
+  font-size: 30px;
+  border-radius: 5px;
+  margin-top: 20px;
+  transition: 0.3s ease;
+}
+
+.dashboard-create a:hover {
+  color: white;
+  background-color: rgb(59, 3, 79);
+}
+
+.dashboard-create h1 {
+  font-size: 45px;
+}
+
+#icon {
+  position: absolute;
+  left: 7px;
+  top: 7px;
+}
+
+#icon1 {
+  position: absolute;
+  left: -7px;
+  top: -7px;
+}
+
+#icon2 {
+  position: absolute;
+  left: 7px;
+  top: 7px;
+}
+
+#icon3 {
+  position: absolute;
+  left: 7px;
+  top: 7px;
+}
+
+.dashboard-card1 {
+  border-radius: 10px;
+  background-color: rgb(159, 117, 255);
+  margin: 15px 15px;
+  color: white;
+  position: relative;
 }
