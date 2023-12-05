@@ -2,30 +2,41 @@
 <% if current_user.groups.empty? == false %>
   <%= link_to "Back to Group", group_path(current_user.groups.first) %>
 <% elsif current_user.members.empty? == false %>
-  <%= link_to "Back to Group", group_path(current_user.members.first.group_id), class: "btn" %>
+  <%= link_to "Back to Group", group_path(current_user.members.first.group_id),  class: "btn" %>
 <% end %>
-
-
 <div class="container chatroom"
   data-controller="chatroom-subscription"
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
 >
   <h1>#<%= @chatroom.name %></h1>
 
-  <div class="messages" data-chatroom-subscription-target="messages">
-  <% @chatroom.messages.each do |message| %>
-    <%= render "messages/message", message: message %>
-  <% end %>
-</div>
-</div>
 
-<%= simple_form_for [@chatroom, @message],
-  html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f|
-%>
-  <%= f.input :content,
-    label: false,
-    placeholder: "Message ##{@chatroom.name}",
-    wrapper_html: {class: "flex-grow-1"}
-  %>
-  <%= f.submit "Send", class: "btn btn-primary mb-3" %>
-<% end %>
+  <div class="messages" data-chatroom-subscription-target="messages">
+    <% @chatroom.messages.each do |message| %>
+      <%= render "messages/message", message: message %>
+    <% end %>
+  </div>
+
+  <div class="form-container">
+    <%= simple_form_for [@chatroom, @message],
+    html: {
+      data: {
+        action: "turbo:submit-end->chatroom-subscription#resetForm" },
+        class: "mt-3 d-flex" } do |f|%>
+
+        <div class="testing w-100 d-flex align-items-center justify-content-center">
+          <%= f.input :content,
+            input_html:{class: "w-100 mb-0"},
+            label: false,
+            placeholder: "Message ##{@chatroom.name}",
+            wrapper_html: {class: "m-0"}%>
+
+          <%= button_tag(type: 'submit', class: " m-0") do %>
+            <i class="fa-regular fa-paper-plane"></i>
+          <% end %>
+        </div>
+
+    <% end %>
+
+  </div>
+</div>
