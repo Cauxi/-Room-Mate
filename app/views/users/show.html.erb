@@ -1,3 +1,4 @@
+<div class="user-show">
 <div class="container d-flex justify-content-between">
  <div class="card-image">
   <div class="row justify-content-center">
@@ -17,7 +18,7 @@
         <div class="carousel-inner">
           <% @user.photos.each_with_index do |photo, index| %>
             <div class="carousel-item <%= 'active' if index.zero? %>">
-              <%= cl_image_tag photo.key, height: 450, width: 400, crop: :fill %>
+              <%= cl_image_tag photo.key, height: 400, width: 350, crop: :fill %>
             </div>
           <% end %>
         </div>
@@ -34,10 +35,12 @@
   <div class="card-image-infos">
     <div>
       <h1><%=@user.first_name %> <%= @user.last_name %>, <%= @user.age %></h1>
-      <h5>Wants to live in <%= @user.location %></h5>
+       <h5><i class="fa-solid fa-location-dot" style="color: #6804fc;"></i>  Wants to live in <%= @user.location %></h5>
       <br>
-      <h5>About me:</h5>
+      <div id="about-me">
+      <h5>About me</h5>
       <p><%= @user.description %></p>
+      </div>
       <br>
     <h4>Interests</h4>
     <div class="interests">
@@ -55,24 +58,23 @@
 </div>
 </div>
 
+<div class="container">
+<br>
 <% if current_user.groups.empty? == false %>
   <% if @user.groups.empty? == false %>
     <p></p>
   <% elsif @user.members.empty? == true %>
-    <p>Invite <%= @user.first_name %> to:</p>
     <%= button_to current_user.groups[0].name,  new_member_user_path(@user.nickname), method: :post %>
   <% elsif @user.members.first.status != "accepted" %>
-    <p>Invite <%= @user.first_name %> to:</p>
     <%= button_to current_user.groups[0].name,  new_member_user_path(@user.nickname), method: :post %>
   <% end %>
 <% end %>
-
+<br>
 
 <% if @user.groups.empty? == false %>
   <%= link_to "Back to Group", group_path(@user.groups.first) %>
 <% elsif @user.members.empty? == false %>
   <%= link_to "Back to Group", group_path(@user.members.first.group_id) %>
 <% end %>
-</div>
 </div>
 </div>
