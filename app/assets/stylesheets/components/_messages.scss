@@ -1,0 +1,95 @@
+.message {
+  p {
+    margin: 0;
+  }
+
+  a{
+    width: 20px;
+  }
+}
+
+.my-message{
+  display: flex;
+  justify-content: end;
+  p {
+    margin: 0;
+  }
+
+  a{
+    width: 20px;
+  }
+
+}
+
+.bubble {
+  background-color: rgba(128, 128, 128, 0.195);
+  width: 80%;
+  border-radius: 10px;
+}
+
+.bubble-title {
+  display: flex;
+  align-items: center;
+  height: 10px;
+}
+
+.bubble-content{
+  width: 90%;
+  border-radius: 10px;
+  align-self: center;
+  text-align: end;
+  position: sticky;
+  left: 9%;
+
+  p {
+    width:100%;
+    text-align: start;
+    overflow: hidden;
+    min-height: 100%;
+    position: relative;
+    align-self: flex-start;
+    margin-right: 10px;
+  }
+}
+
+button{
+  background: none;
+  border:none;
+}
+
+.optional{
+  margin: 0 5px 0 0  !important;
+  width: 100%;
+}
+
+.my-bubble-content{
+  min-height: 70px;
+  width: 90%;
+  border-radius: 10px;
+  align-self: center;
+  text-align: end;
+  position: sticky;
+  left: 49%;
+
+  p {
+    width:100%;
+    text-align: start;
+    overflow: hidden;
+    min-height: 100%;
+    position: relative;
+    align-self: flex-start;
+    margin-right: 10px;
+  }
+}
+.form-data input {
+  border-radius: 10px;
+}
+
+.data {
+  margin-right: 5px;
+  display: flex;
+  justify-content: right;
+  font-size: 12px;
+  padding: 10px;
+  margin-bottom: 5px;
+}

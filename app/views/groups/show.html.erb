@@ -22,11 +22,12 @@
 
 <h2>Members of the group</h2>
 
-    <div class="pic">
+    <div>
       <%= link_to user_path(@group.user) do%>
         <%= cl_image_tag @group.user.photos.first.key,class: "avatar" if @group.user.photos.attached? %>
       <% end %>
     </div>
+
 
 <% @group.members.each do |member| %>
         <% if member.status == "accepted" %>
