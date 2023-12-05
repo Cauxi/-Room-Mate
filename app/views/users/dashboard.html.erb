@@ -1,9 +1,9 @@
 <div class="pic-dashboard">
     <h3>Welcome back, </h3>
-    <h1><%= current_user.first_name %> <%= current_user.last_name %></h1>
       <%= link_to user_path(current_user) do%>
         <%= cl_image_tag current_user.photos.first.key if current_user.photos.attached? %>
       <% end %>
+      <h1><%= current_user.first_name %> <%= current_user.last_name %></h1>
 </div>
 
 
@@ -63,18 +63,43 @@
               <i id = "icon" class="fa-solid fa-user-plus" style="color: #261050;"></i>
           </div>
             <% else %>
+
             <div class="dashboard-card1">
+              <div class="top">
+                <h5>Invitation to:</h5>
+                <h5>Status:</h5>
+              </div>
+               <div class="top">
+                <h6><%= link_to member.group.name, group_path(member.group) %></h6>
+                <h6><%= member.status %></h6>
+              </div>
+              <div class="image">
               <%= link_to user_path(member.user) do %>
-                <h5> <strong><%= member.user.first_name %> <%= member.user.last_name %></strong></h5>
+                <%= cl_image_tag member.user.photos.first.key if member.user.photos.attached? %>
               <% end %>
-              <h6>Wants to enter your <%= link_to member.group.name, group_path(member.group) %></h6>
-              <p> Current status: <strong><%= member.status %></strong>.</p>
+              <h5> <strong><%= member.user.first_name %> <%= member.user.last_name %></strong> <i class="fa-solid fa-house-chimney-user fa-xs" style="color: #583f91;"></i></h5>
+              </div>
+              <div class="bottom">
+              <h6>Location * Gender * Age</h6>
+              <p><%= member.user.location %> * <%= member.user.gender %> * <%= member.user.age %></p>
+              <h6>Interests</h6>
+              <div class="tags-list">
+              <% member.user.tags.split(",").each do |tag| %>
+                <ul>
+                     <li><%=tag%></li>
+                </ul>
+              <% end %>
+              </div>
+              <h6>About me:</h6>
+              <%= link_to "See more...", user_path(member.user) %>
+              </div>
+              <div class="link-top">
               <% if member.status == "pending" %>
                 <div class="link-heart">
-                <p> You want to: <%= link_to accept_path(member), data: {turbo_method: :patch} do %> <i class="fa-solid fa-heart" style="color: #3b034f;"></i><% end %> or <%= link_to reject_path(member), data: {turbo_method: :patch} do %><i class="fa-solid fa-rectangle-xmark" style="color: #3b034f;"></i><% end %> ?</p>
+                <%= link_to accept_path(member), data: {turbo_method: :patch} do %> <i class="fa-solid fa-heart" style="color: #3b034f;"></i><% end %> <%= link_to reject_path(member), data: {turbo_method: :patch} do %><i class="fa-solid fa-rectangle-xmark" style="color: #3b034f;"></i><% end %>
                 </div>
               <% end %>
-              <i id = "icon1" class="fa-solid fa-user-plus" style="color: #261050;"></i>
+              </div>
             </div>
             <% end %>
         <% end %>
