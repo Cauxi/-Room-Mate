@@ -34,7 +34,6 @@
 }
 
 .bubble-content{
-  min-height: 70px;
   width: 90%;
   border-radius: 10px;
   align-self: center;
@@ -82,6 +81,15 @@ button{
     margin-right: 10px;
   }
 }
-.testing input {
+.form-data input {
   border-radius: 10px;
+}
+
+.data {
+  margin-right: 5px;
+  display: flex;
+  justify-content: right;
+  font-size: 12px;
+  padding: 10px;
+  margin-bottom: 5px;
 }
