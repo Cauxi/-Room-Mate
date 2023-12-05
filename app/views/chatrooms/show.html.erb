@@ -4,7 +4,9 @@
 <% elsif current_user.members.empty? == false %>
   <%= link_to "Back to Group", group_path(current_user.members.first.group_id),  class: "btn" %>
 <% end %>
-<div class="container chatroom"
+
+<div class="container-chatroom"
+
   data-controller="chatroom-subscription"
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
 >
@@ -35,8 +37,6 @@
             <i class="fa-regular fa-paper-plane"></i>
           <% end %>
         </div>
-
     <% end %>
-
   </div>
 </div>

@@ -8,7 +8,7 @@ class PagesController < ApplicationController
     if user_signed_in?
       @users = User.where(location: current_user.location)
       @users_show = @users.select do |user|
-        user.groups.empty? == true
+        user.groups.empty? && user.members.where(:status => "accepted").exists? == false
       end
     end
     # @users = User.where(location: current_user.location).where()

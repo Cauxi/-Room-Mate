@@ -3,17 +3,12 @@ class GroupsController < ApplicationController
 
   def show
     @member = Member.new
-    count = 0
+    @members_pending = 0
     current_user.groups.each do |group|
-      count += group.members.count { |member| member.status == "pending" }
+      @members_pending += group.members.count { |member| member.status == "pending" }
     end
-    @members_pending = count
-    @is_user_member = isUserMemberOfGroup
 
-    @colection = []
-    @group.members.each do |element|
-      @colection.push(element["user_id"])
-    end
+    @is_user_member = user_member_of_group?
 
     @sum = current_user.members.count { |member| member.status == "pending" }
   end
@@ -39,6 +34,7 @@ class GroupsController < ApplicationController
   end
 
   private
+
   def set_group
     @group = Group.find(params[:id])
   end
@@ -47,7 +43,7 @@ class GroupsController < ApplicationController
     params.require(:group).permit(:name, :user_id)
   end
 
-  def isUserMemberOfGroup
+  def user_member_of_group?
     current_user.member_ids.each do |id|
       result = @group.member_ids.include?(id)
       return true if result
