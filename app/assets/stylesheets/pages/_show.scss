@@ -48,6 +48,8 @@ h2 {
   .interests {
     margin-top: 10px;
     margin-bottom: 10px;
+    display: flex;
+    justify-content: space-evenly;
   }
 
   ul {
@@ -55,7 +57,7 @@ h2 {
     display: inline;
     justify-content: space-between;
     margin-top: 5px;
-    margin-right: 15px;
+    // margin-right: 15px;
     padding: 0;
   }
 
