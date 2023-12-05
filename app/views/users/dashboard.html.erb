@@ -1,3 +1,12 @@
+<div class="pic-dashboard">
+    <h3>Welcome back, </h3>
+    <h1><%= current_user.first_name %> <%= current_user.last_name %></h1>
+      <%= link_to user_path(current_user) do%>
+        <%= cl_image_tag current_user.photos.first.key if current_user.photos.attached? %>
+      <% end %>
+</div>
+
+
 
 
 <% if current_user.groups.empty? && current_user.members.empty? == false %>
@@ -15,7 +24,7 @@
       <% end %>
     <% end %>
 
-    <h1 class="h1-user">Manage Your Invitations</h1>
+    <h1 class="h1-user">Manage Your Requests</h1>
     <% @members.each do |member| %>
       <% if member.invited != current_user.id %>
         <div class="dashboard-card">
@@ -41,12 +50,11 @@
  <div class="dashboard-container">
 <% elsif current_user.groups.empty? == false && current_user.members.empty? %>
 
-      <h1 class="h1-owner">Manage Your Invitations</h1>
+      <h1 class="h1-owner">Manage Your Requests</h1>
       <% @groups.each do |group| %>
         <% group.members.each do |member| %>
-          <div class="dashboard-card">
             <% if member.invited == current_user.id %>
-
+          <div class="dashboard-card">
               <%= link_to user_path(member.user) do %>
                 <h5> <strong><%= member.user.first_name %> <%= member.user.last_name %></strong></h5>
               <% end %>
@@ -81,6 +89,3 @@
     <%= link_to "Start", new_group_path %>
   <% end %>
 </div>
-
-
-
