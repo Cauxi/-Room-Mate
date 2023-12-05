@@ -15,7 +15,7 @@
       <% end %>
     <% end %>
 
-    <h1>Manage Your Invitations</h1>
+    <h1 class="h1-user">Manage Your Invitations</h1>
     <% @members.each do |member| %>
       <% if member.invited != current_user.id %>
         <div class="dashboard-card">
@@ -31,16 +31,17 @@
                 <p> The requester will be notified about your decision.</p>
               <% end %>
             <% end %>
+          <i id = "icon2" class="fa-solid fa-user-plus" style="color: #261050;"></i></i>
         </div>
       <% end %>
   </div>
   <% end %>
 
 
-
+ <div class="dashboard-container">
 <% elsif current_user.groups.empty? == false && current_user.members.empty? %>
-  <div class="dashboard-container">
-      <h1>Manage Your Invitations</h1>
+
+      <h1 class="h1-owner">Manage Your Invitations</h1>
       <% @groups.each do |group| %>
         <% group.members.each do |member| %>
           <div class="dashboard-card">
@@ -51,7 +52,10 @@
               <% end %>
               <h6>Was invited to enter your <%= link_to member.group.name, group_path(member.group) %> group.</h6>
               <p> Current status from this member: <strong><%= member.status %></strong>.</p>
+              <i id = "icon" class="fa-solid fa-user-plus" style="color: #261050;"></i>
+          </div>
             <% else %>
+            <div class="dashboard-card1">
               <%= link_to user_path(member.user) do %>
                 <h5> <strong><%= member.user.first_name %> <%= member.user.last_name %></strong></h5>
               <% end %>
@@ -62,12 +66,13 @@
                 <p> You want to: <%= link_to accept_path(member), data: {turbo_method: :patch} do %> <i class="fa-solid fa-heart" style="color: #3b034f;"></i><% end %> or <%= link_to reject_path(member), data: {turbo_method: :patch} do %><i class="fa-solid fa-rectangle-xmark" style="color: #3b034f;"></i><% end %> ?</p>
                 </div>
               <% end %>
-          </div>
+              <i id = "icon1" class="fa-solid fa-user-plus" style="color: #261050;"></i>
+            </div>
             <% end %>
         <% end %>
       <% end %>
-  </div>
 <% end %>
+</div>
 
 
 <div class="dashboard-create">
@@ -76,3 +81,6 @@
     <%= link_to "Start", new_group_path %>
   <% end %>
 </div>
+
+
+

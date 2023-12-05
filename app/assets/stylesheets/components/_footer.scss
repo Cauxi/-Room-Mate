@@ -1,23 +1,24 @@
 .footer {
-  background: #F4F4F4;
-  height: 50px;
-  color: rgba(0,0,0,0.3);
+  background: rgb(185, 129, 283);
+  height: 85px;
   position: fixed;
   bottom: 0;
   width: 100%;
+  border-radius: 20px 20px 0 0;
 }
 
 .footer-links {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  margin-top: 20px;
 }
 
 .footer-links a {
-  color: black;
+  color: rgb(38, 16, 80);
   opacity: 0.8;
   text-decoration: none;
-  font-size: 24px;
+  font-size: 35px;
   padding: 0 3px;
 }
 
@@ -29,7 +30,7 @@
 
 body {
   min-height: 100vh;
-  margin-bottom: 79px;
+  margin-bottom: 120px;
   max-width: 100%;
   overflow-y: scroll;
   overflow-x: hidden;

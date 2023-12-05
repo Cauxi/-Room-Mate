@@ -1,3 +1,4 @@
+//dashboard css -Tiago
 .dashboard-container {
   margin: 30px auto;
   text-align: center;
@@ -11,12 +12,24 @@
   font-size: 30px;
 }
 
+.h1-owner {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.h1-user {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
 .dashboard-card {
   border-radius: 10px;
   background-color: rgb(159, 117, 255);
-  margin: 15px 15px;
+  margin: 25px 15px;
   padding: 5px 0;
   color: white;
+  position: relative;
+  text-align: center;
 }
 
 .dashboard-container h5 {
@@ -41,6 +54,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  position: relative;
 }
 
 .dashboard-create {
@@ -64,4 +78,40 @@
 .dashboard-create a:hover {
   color: white;
   background-color: rgb(59, 3, 79);
+}
+
+.dashboard-create h1 {
+  font-size: 45px;
+}
+
+#icon {
+  position: absolute;
+  left: 7px;
+  top: 7px;
+}
+
+#icon1 {
+  position: absolute;
+  left: -7px;
+  top: -7px;
+}
+
+#icon2 {
+  position: absolute;
+  left: 7px;
+  top: 7px;
+}
+
+#icon3 {
+  position: absolute;
+  left: 7px;
+  top: 7px;
+}
+
+.dashboard-card1 {
+  border-radius: 10px;
+  background-color: rgb(159, 117, 255);
+  margin: 15px 15px;
+  color: white;
+  position: relative;
 }
