@@ -1,37 +1,66 @@
+<div class="pic-dashboard">
+    <h3>Welcome back, </h3>
+      <%= link_to user_path(current_user) do%>
+        <%= cl_image_tag current_user.photos.first.key if current_user.photos.attached? %>
+      <% end %>
+      <h1><%= current_user.first_name %> <%= current_user.last_name %></h1>
+</div>
+
+
 
 
 <% if current_user.groups.empty? && current_user.members.empty? == false %>
   <div class="dashboard-container">
-    <h1>Check the status of your invitations</h1>
+    <h1>Manage Your Requests</h1>
     <% @members.each do |member| %>
 
       <% if member.invited == current_user.id %>
-        <div class="dashboard-card-user">
-            <p>Your join request to <%= member.group.name %> is: <strong><%= member.status %></strong>.</p>
-            <% if member.status == "accepted" %>
-              <p>Go to your group: <%= link_to member.group.name, group_path(member.group) %></p>
-            <% end %>
+        <div class="dashboard-card1">
+          <div class="top">
+                <h5>Invitation to join:</h5>
+                <h5>Status:</h5>
+          </div>
+          <div class="top">
+                 <%= link_to user_path(member.group) do %>
+                  <h6> <%= member.group.name %> </h5>
+                 <% end %>
+                <h6><%= member.status %></h6>
+          </div>
+           <div class="image1">
+              <%= link_to user_path(member.group.user) do %>
+                <%= cl_image_tag member.group.user.photos.first.key if member.group.user.photos.attached? %>
+              <% end %>
+              <h5> <%= member.group.user.first_name %> <%= member.group.user.last_name %> <i class="fa-solid fa-house-chimney-user fa-xs" style="color: #583f91;"></i></h5>
+              </div>
         </div>
       <% end %>
     <% end %>
 
-    <h1 class="h1-user">Manage Your Invitations</h1>
+
     <% @members.each do |member| %>
       <% if member.invited != current_user.id %>
-        <div class="dashboard-card">
-          <p><%=  User.find(Group.find(member.group_id).user_id).first_name %> invited you to join his <strong><%= link_to Group.find(member.group_id).name, group_path(Group.find(member.group_id)) %></strong>.</p>
-          <p> Current status: <strong><%= member.status %></strong>.</p>
-            <% if member.status == "pending" %>
-              <div class="link-heart">
-                <p> You want to: <%= link_to accept_path(member), data: {turbo_method: :patch} do %> <i class="fa-solid fa-heart" style="color: #3b034f;"></i><% end %> or <%= link_to reject_path(member), data: {turbo_method: :patch} do %><i class="fa-solid fa-rectangle-xmark" style="color: #3b034f;"></i><% end %> ?</p>
-              </div>
-              <% if member.status == "accepted" %>
-                <p> You joined the group.</p>
-              <% elsif member.status == "rejected" %>
-                <p> The requester will be notified about your decision.</p>
+        <div class="dashboard-card1">
+          <div class="top">
+                <h5>Invitation to join:</h5>
+                <h5>Status:</h5>
+          </div>
+          <div class="top">
+                <h6> <%= link_to Group.find(member.group_id).name, group_path(Group.find(member.group_id)) %> </h6>
+                <h6><%= member.status %></h6>
+          </div>
+           <div class="image1">
+              <%= link_to user_path(Group.find(member.group_id).user) do %>
+                <%= cl_image_tag Group.find(member.group_id).user.photos.first.key if Group.find(member.group_id).user.photos.attached? %>
               <% end %>
-            <% end %>
-          <i id = "icon2" class="fa-solid fa-user-plus" style="color: #261050;"></i></i>
+              <h5> By <%= Group.find(member.group_id).user.first_name %> <%= Group.find(member.group_id).user.last_name %> <i class="fa-solid fa-house-chimney-user fa-xs" style="color: #583f91;"></i></h5>
+            </div>
+            <div class="link-top">
+              <% if member.status == "pending" %>
+                <div class="link-heart">
+                <%= link_to accept_path(member), data: {turbo_method: :patch} do %> <i class="fa-solid fa-heart" style="color: #3b034f;"></i><% end %> <%= link_to reject_path(member), data: {turbo_method: :patch} do %><i class="fa-solid fa-rectangle-xmark" style="color: #3b034f;"></i><% end %>
+                </div>
+              <% end %>
+              </div>
         </div>
       <% end %>
   </div>
@@ -41,32 +70,75 @@
  <div class="dashboard-container">
 <% elsif current_user.groups.empty? == false && current_user.members.empty? %>
 
-      <h1 class="h1-owner">Manage Your Invitations</h1>
+      <h1 class="h1-owner">Manage Your Requests</h1>
       <% @groups.each do |group| %>
         <% group.members.each do |member| %>
-          <div class="dashboard-card">
             <% if member.invited == current_user.id %>
 
+
+
+
+          <div class="dashboard-card1">
+            <div class="top">
+                <h5>Invitation to:</h5>
+                <h5>Status:</h5>
+              </div>
+               <div class="top">
+                 <%= link_to user_path(member.user) do %>
+                  <h6> <strong><%= member.user.first_name %> <%= member.user.last_name %></strong></h5>
+                 <% end %>
+                <h6><%= member.status %></h6>
+              </div>
+              <div class="image1">
               <%= link_to user_path(member.user) do %>
-                <h5> <strong><%= member.user.first_name %> <%= member.user.last_name %></strong></h5>
+                <%= cl_image_tag member.user.photos.first.key if member.user.photos.attached? %>
               <% end %>
-              <h6>Was invited to enter your <%= link_to member.group.name, group_path(member.group) %> group.</h6>
-              <p> Current status from this member: <strong><%= member.status %></strong>.</p>
-              <i id = "icon" class="fa-solid fa-user-plus" style="color: #261050;"></i>
+              <h5> Was invited to your group <i class="fa-solid fa-house-chimney-user fa-xs" style="color: #583f91;"></i></h5>
+              </div>
           </div>
+
+
+
+
+
             <% else %>
+
             <div class="dashboard-card1">
+              <div class="top">
+                <h5>Invitation to:</h5>
+                <h5>Status:</h5>
+              </div>
+               <div class="top">
+                <h6><%= link_to member.group.name, group_path(member.group) %></h6>
+                <h6><%= member.status %></h6>
+              </div>
+              <div class="image">
               <%= link_to user_path(member.user) do %>
-                <h5> <strong><%= member.user.first_name %> <%= member.user.last_name %></strong></h5>
+                <%= cl_image_tag member.user.photos.first.key if member.user.photos.attached? %>
               <% end %>
-              <h6>Wants to enter your <%= link_to member.group.name, group_path(member.group) %></h6>
-              <p> Current status: <strong><%= member.status %></strong>.</p>
+              <h5> <strong><%= member.user.first_name %> <%= member.user.last_name %></strong> <i class="fa-solid fa-house-chimney-user fa-xs" style="color: #583f91;"></i></h5>
+              </div>
+              <div class="bottom">
+              <h6>Location * Gender * Age</h6>
+              <p><%= member.user.location %> * <%= member.user.gender %> * <%= member.user.age %></p>
+              <h6>Interests</h6>
+              <div class="tags-list">
+              <% member.user.tags.split(",").each do |tag| %>
+                <ul>
+                     <li><%=tag%></li>
+                </ul>
+              <% end %>
+              </div>
+              <h6>About me:</h6>
+              <%= link_to "See more...", user_path(member.user) %>
+              </div>
+              <div class="link-top">
               <% if member.status == "pending" %>
                 <div class="link-heart">
-                <p> You want to: <%= link_to accept_path(member), data: {turbo_method: :patch} do %> <i class="fa-solid fa-heart" style="color: #3b034f;"></i><% end %> or <%= link_to reject_path(member), data: {turbo_method: :patch} do %><i class="fa-solid fa-rectangle-xmark" style="color: #3b034f;"></i><% end %> ?</p>
+                <%= link_to accept_path(member), data: {turbo_method: :patch} do %> <i class="fa-solid fa-heart" style="color: #3b034f;"></i><% end %> <%= link_to reject_path(member), data: {turbo_method: :patch} do %><i class="fa-solid fa-rectangle-xmark" style="color: #3b034f;"></i><% end %>
                 </div>
               <% end %>
-              <i id = "icon1" class="fa-solid fa-user-plus" style="color: #261050;"></i>
+              </div>
             </div>
             <% end %>
         <% end %>
@@ -81,6 +153,3 @@
     <%= link_to "Start", new_group_path %>
   <% end %>
 </div>
-
-
-

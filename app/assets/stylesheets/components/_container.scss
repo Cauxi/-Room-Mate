@@ -13,8 +13,10 @@
 }
 
 .h1-owner {
-  margin-top: 30px;
-  margin-bottom: 20px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  color: rgb(88, 63, 145);
+  font-weight: bold;
 }
 
 .h1-user {
@@ -92,8 +94,8 @@
 
 #icon1 {
   position: absolute;
-  left: -7px;
-  top: -7px;
+  left: 7px;
+  top: 7px;
 }
 
 #icon2 {
@@ -108,10 +110,143 @@
   top: 7px;
 }
 
-.dashboard-card1 {
-  border-radius: 10px;
-  background-color: rgb(159, 117, 255);
-  margin: 15px 15px;
+.pic-dashboard {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.pic-dashboard img {
+  border-radius: 50%;
+  height: 100px;
+  opacity: 0.9;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.pic-dashboard h1 {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.pic-dashboard h3 {
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+.card-pending {
   color: white;
+  font-weight: bold;
+  border-radius: 10px;
+  margin: 15px 15px;
+  text-align: center;
+  padding: 5px 0;
+  margin: 25px 15px;
+  background-color: rgb(88, 63, 145);
   position: relative;
+}
+
+#icon5 {
+  position: absolute;
+  left: 7px;
+  top: 7px;
+  font-size: 16px;
+}
+
+
+
+
+.dashboard-card1 {
+  border-radius: 20px;
+  background-color: white;
+  margin: 15px 15px;
+  position: relative;
+  padding: 20px 20px;
+  margin: 25px 15px;
+  border: 2px solid rgb(88, 63, 145);
+}
+
+.dashboard-card1 h5 {
+  color: black;
+  opacity: 0.9;
+  font-weight: bold;
+}
+
+.dashboard-card1 h5 {
+  color: rgb(88, 63, 145);
+  font-weight: bold;
+}
+
+.dashboard-card1 h6 {
+  color: black;
+  opacity: 0.9;
+  font-weight: bold;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dashboard-card1 img {
+  border-radius: 50%;
+  height: 85px;
+}
+
+.image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-bottom: 1px solid rgb(88, 63, 145);
+}
+
+.image1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.image h5 {
+  margin-top: 5px;
+}
+
+.bottom h6 {
+  color: rgb(88, 63, 145);
+  font-weight: bold;
+}
+
+.bottom p {
+  color: black;
+  opacity: 0.9;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.tags-list ul {
+  list-style-type: none;
+  padding: 0px 5px;
+  opacity: 0.9;
+  font-weight: bold;
+}
+
+.tags-list {
+  display: flex;
+}
+
+.link-top {
+  color: rgb(88, 63, 145);
+  font-size: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+.top a {
+  color: black;
+  opacity: 0.9;
 }
