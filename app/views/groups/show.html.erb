@@ -21,23 +21,29 @@
 
 
 <h2>Members of the group</h2>
-
-    <div>
-      <%= link_to user_path(@group.user) do%>
-        <%= cl_image_tag @group.user.photos.first.key,class: "avatar" if @group.user.photos.attached? %>
-      <% end %>
+<%= link_to user_path(@group.user) do %>
+    <div class="card-content card-container d-flex mt-3">
+      <%= cl_image_tag @group.user.photos.first.key, class: "avatar" if @group.user.photos.attached? %>
+      <div class="card-product-infos">
+        <h2 class="groups"> Me</h2>
+        <p><%= @group.user.description %></p>
+      </div>
     </div>
-
-
-<% @group.members.each do |member| %>
-        <% if member.status == "accepted" %>
-          <div class="pic"><%= link_to user_path(member.user) do %>
-            <%= cl_image_tag member.user.photos.first.key,class: "avatar" %>
-          <% end %></div>
-        <% end %>
 <% end %>
 
-
+<% @group.members.each do |member| %>
+  <% if member.status == "accepted" %>
+    <%= link_to user_path(member.user) do %>
+        <div class="card-content card-container d-flex mt-3">
+          <%= cl_image_tag member.user.photos.first.key,class: "avatar" %>
+          <div class="card-product-infos">
+            <h2 class="groups"> <%= member.user.first_name%></h2>
+            <p><%= member.user.description %></p>
+          </div>
+        </div>
+    <% end %>
+  <% end %>
+<% end %>
 
 <% if @group.user_id == current_user.id %>
  <% if @group.chatroom == nil %>
