@@ -25,7 +25,7 @@
         </ul>
       <% end %>
     <% else %>
-<div id="carouselExample" class="carousel slide pointer-event" data-bs-interval="99999" data-bs-ride="carousel">
+<div id="carouselExample" class="carousel slide pointer-event" data-controller="swipe">
   <div class="carousel-inner" >
       <% @users_show.each_with_index do |x, index| %>
       <% if index == 0 %>
