@@ -1,12 +1,12 @@
 
-<h1><%= @group.name %></h1>
+<h1 class="h1-groups"><%= @group.name %></h1>
 
 <% if @group.user_id == current_user.id %>
-  <p>Welcome to your group</p>
+  <h3 class="h3-groups">Welcome to your group</h3>
 <% else %>
   <% if current_user.members.empty? == false %>
     <% if current_user.members.where(:status => "accepted").exists? %>
-      <p>Welcome to your group</p>
+      <h3 class="h3-groups">Welcome to your group</h3>
     <% elsif current_user.members.where(:status => "accepted").exists? == false %>
       <%= simple_form_for [@group, @member] do |f| %>
         <%= f.submit "Heart", class: "btn btn-dark" %>
@@ -20,40 +20,46 @@
 <% end %>
 
 
-<h2>Members of the group</h2>
-<%= link_to user_path(@group.user) do %>
-    <div class="card-content card-container d-flex mt-3">
-      <%= cl_image_tag @group.user.photos.first.key, class: "avatar" if @group.user.photos.attached? %>
-      <div class="card-product-infos">
-        <h2 class="groups"> Me</h2>
-        <p><%= @group.user.description %></p>
-      </div>
-    </div>
-<% end %>
-
-<% @group.members.each do |member| %>
-  <% if member.status == "accepted" %>
-    <%= link_to user_path(member.user) do %>
-        <div class="card-content card-container d-flex mt-3">
-          <%= cl_image_tag member.user.photos.first.key,class: "avatar" %>
-          <div class="card-product-infos">
-            <h2 class="groups"> <%= member.user.first_name%></h2>
-            <p><%= member.user.description %></p>
+<h2 class="h2-groups">Members of the group</h2>
+  <div class="card-show-group">
+    <%= link_to user_path(@group.user) do %>
+        <div class="card-content card-container">
+          <div class="img-name">
+          <%= cl_image_tag @group.user.photos.first.key, class: "avatar" if @group.user.photos.attached? %>
+            <h2 class="groups"> <%= @group.user.first_name %> <%= @group.user.last_name %></h2>
           </div>
+            <p><%= @group.user.description %></p>
         </div>
     <% end %>
-  <% end %>
-<% end %>
+
+    <% @group.members.each do |member| %>
+      <% if member.status == "accepted" %>
+        <%= link_to user_path(member.user) do %>
+            <div class="card-content card-container mt-3">
+               <div class="img-name">
+                <%= cl_image_tag member.user.photos.first.key,class: "avatar" %>
+                <h2 class="groups"> <%= member.user.first_name%> <%= member.user.last_name%></h2>
+               </div>
+               <p><%= member.user.description %></p>
+            </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
 
 <% if @group.user_id == current_user.id %>
  <% if @group.chatroom == nil %>
+ <div class="button-invite">
   <%= link_to "Create a new chat", new_group_chatroom_path(@group) %>
+ </div>
  <% end %>
 <% end %>
 
 <% if @group.user_id == current_user.id %>
  <% if @group.chatroom != nil %>
+  <div class="button-invite">
     <%= link_to "Open chat", chatroom_path(@group.chatroom) %>
+  </div>
  <% end %>
 <% end %>
 
@@ -61,7 +67,9 @@
   <% if current_user.members.empty? == false %>
     <% if current_user.members.where(:status => "accepted").exists? %>
       <% if @group.chatroom != nil %>
+        <div class="button-invite">
         <%= link_to "Open chat", chatroom_path(@group.chatroom), class: "btn" %>
+        </div>
       <% end %>
     <% end %>
   <% end %>
@@ -69,10 +77,8 @@
 
 <% if current_user.members.empty? == false %>
   <% if current_user.members.first.group_id == @group.id && current_user.members.where(:status => "accepted").exists? %>
-    <%= link_to "Leave this group",
-    group_member_path(@current_user.members.first), class: "btn",
-
-  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-%>
+  <div class="button-invite">
+    <%= link_to "Leave this group", group_member_path(@current_user.members.first), class: "btn", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+  </div>
   <% end %>
 <% end %>

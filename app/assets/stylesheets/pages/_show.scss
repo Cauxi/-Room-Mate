@@ -29,7 +29,7 @@ h2 {
 .user-show {
   h1 {
     text-align: left;
-    margin-top: 15px;
+    margin-top: 25px;
 
   }
 
@@ -91,37 +91,52 @@ h2 {
 
 .card-container {
   background-color: white;
-  margin-right: 10px;
   width: 350px;
   border-radius: 10px;
   box-shadow: 2px 2px 3px gray;
-  align-self: center;
-  position: sticky;
-  border: 1px solid #6804FC;
-  margin: 20px;
+  border: 1px solid rgb(88, 63, 145);
+  margin-top: 15px;
 
   p {
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
-    text-align:justify;
-    overflow: hidden;
-    position: relative;
-    align-self: flex-start;
-    margin-right: 10px;
     color: black;
     opacity: 0.9;
-    
-  }
-  h2 {
-    font-family: 'Roboto', sans-serif;
-    font-size: 35px;
-    text-align: justify;
-    position: relative;
-    align-self: flex-start;
-
-
   }
 }
+
+
 .groups {
-  color: #6804FC;
+  color: rgb(88, 63, 145);
+  font-size: 26px;
+  text-align: start;
+}
+
+.h3-groups {
+  text-align: center;
+  opacity: 0.9;
+  margin-top: 20px;
+}
+
+.h1-groups {
+  margin-top: 20px;
+  opacity: 0.9;
+}
+
+.h2-groups {
+  margin-top: 30px;
+  opacity: 0.9;
+}
+
+.card-show-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.img-name {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
