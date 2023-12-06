@@ -11,6 +11,7 @@
 .my-message{
   display: flex;
   justify-content: end;
+
   p {
     margin: 0;
   }
@@ -22,9 +23,19 @@
 }
 
 .bubble {
-  background-color: rgba(128, 128, 128, 0.195);
+  background-color: rgba(159, 117, 255, 0.195);
   width: 80%;
   border-radius: 10px;
+  margin: 10px;
+  margin-top: 0px;
+}
+
+.current-user-bubble {
+  background-color: rgba(158, 117, 255, 0.671);
+  width: 80%;
+  border-radius: 10px;
+  margin: 10px;
+  margin-top: 0px;
 }
 
 .bubble-title {
@@ -63,7 +74,6 @@ button{
 }
 
 .my-bubble-content{
-  min-height: 70px;
   width: 90%;
   border-radius: 10px;
   align-self: center;
@@ -92,4 +102,20 @@ button{
   font-size: 12px;
   padding: 10px;
   margin-bottom: 5px;
+}
+
+.container-bubble {
+  background-color: rgba(159, 117, 255, 0.195);
+  width: 80%;
+  border-radius: 10px;
+  margin: 10px;
+  margin-top: 0px;
+}
+
+.msg-avatar {
+  display: flex;
+  align-items: end;
+  width: 20px;
+  margin-right: 20px;
+  min-height: 100%;
 }
