@@ -20,7 +20,24 @@
         </ul>
       <% end %>
     <% else %>
-      <% @users_show.each do |x| %>
+
+
+
+
+
+
+
+
+
+
+<div id="carouselExample" class="carousel slide pointer-event" data-bs-interval="99999" data-bs-ride="carousel">
+  <div class="carousel-inner" >
+      <% @users_show.each_with_index do |x, index| %>
+      <% if index == 0 %>
+        <div class="carousel-item active ">
+       <% else %>
+        <div class="carousel-item">
+       <% end %>
         <div class="my-3">
           <div class= "container">
             <div class= "row">
@@ -28,10 +45,10 @@
                 <%= link_to user_path(x) do %>
                <div class="card-trip" style="position: relative;">
                   <% if x.gender == "Male" %>
-                    <%= cl_image_tag x.photos.first.key, height: 450, width: 400, crop: :fill if x.photos.attached? %>
+                    <%= cl_image_tag x.photos.first.key, height: 400, width: 350, crop: :fill if x.photos.attached? %>
                     <div id="user" style="position: absolute; top: 0; left: 0;"> <%= x.first_name %>, <%= x.age %> <i class="fa-solid fa-mars"></i></div>
                   <% else %>
-                    <%= cl_image_tag x.photos.first.key, height: 450, width: 400, crop: :fill if x.photos.attached? %>
+                    <%= cl_image_tag x.photos.first.key, height: 400, width: 350, crop: :fill if x.photos.attached? %>
                     <div id="user" style="position: absolute; top: 0; left: 0;"> <%= x.first_name %>, <%= x.age %> <i class="fa-solid fa-venus"></i></div>
                   <% end %>
                   <div class="card-body">
@@ -52,7 +69,10 @@
             </div>
           </div>
       </div>
+      </div>
       <% end %>
+      </div>
+    </div>
     <% end %>
   <% else %>
     <h1>Sign up/in to start!</h1>
