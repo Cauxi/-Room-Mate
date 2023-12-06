@@ -1,16 +1,21 @@
 
-<div class="justify-content-center">
-  <div class="col-sm-8 my-3">
+<div class=" justify-content-center">
+  <div class="card-form" class="col-sm-8 my-3">
     <%= form_with url: root_path, method: :get, class: "d-flex" do %>
       <%= text_field_tag :query,
             params[:query],
             class: "form-control",
-            placeholder: "Type a keyword"
+            placeholder: "Look for interests"
         %>
-      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+      <%= submit_tag "Search", name: "", class: "btn btn-light" %>
     <% end %>
   </div>
 </div>
+
+
+
+
+
 
   <% if current_user %>
     <% if current_user.groups.empty? %>
@@ -20,7 +25,14 @@
         </ul>
       <% end %>
     <% else %>
-      <% @users_show.each do |x| %>
+<div id="carouselExample" class="carousel slide pointer-event" data-bs-interval="99999" data-bs-ride="carousel">
+  <div class="carousel-inner" >
+      <% @users_show.each_with_index do |x, index| %>
+      <% if index == 0 %>
+        <div class="carousel-item active ">
+       <% else %>
+        <div class="carousel-item">
+       <% end %>
         <div class="my-3">
           <div class= "container">
             <div class= "row">
@@ -28,15 +40,15 @@
                 <%= link_to user_path(x) do %>
                <div class="card-trip" style="position: relative;">
                   <% if x.gender == "Male" %>
-                    <%= cl_image_tag x.photos.first.key, height: 450, width: 400, crop: :fill if x.photos.attached? %>
+                    <%= cl_image_tag x.photos.first.key, height: 400, width: 365, crop: :fill, :style => "border-radius: 25px 25px 0 0" if x.photos.attached? %>
                     <div id="user" style="position: absolute; top: 0; left: 0;"> <%= x.first_name %>, <%= x.age %> <i class="fa-solid fa-mars"></i></div>
                   <% else %>
-                    <%= cl_image_tag x.photos.first.key, height: 450, width: 400, crop: :fill if x.photos.attached? %>
+                    <%= cl_image_tag x.photos.first.key, height: 400, width: 365, crop: :fill, :style => "border-radius: 25px 25px 0 0" if x.photos.attached? %>
                     <div id="user" style="position: absolute; top: 0; left: 0;"> <%= x.first_name %>, <%= x.age %> <i class="fa-solid fa-venus"></i></div>
                   <% end %>
                   <div class="card-body">
-                    <br>
-                    <p class="card-tags">
+                      <h6>Interests</h6>
+                      <div class="card-tags">
                       <% x.tags.split(",").each do |tag| %>
                         <ul id="card-ul">
                           <li id="card-li">
@@ -44,7 +56,7 @@
                           </li>
                         </ul>
                       <% end %>
-                    </p>
+                    </div>
                       <% end %>
                 </div>
                 </div>
@@ -52,7 +64,10 @@
             </div>
           </div>
       </div>
+      </div>
       <% end %>
+      </div>
+    </div>
     <% end %>
   <% else %>
     <h1>Sign up/in to start!</h1>

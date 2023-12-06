@@ -1,0 +1,50 @@
+.dashboard-create a {
+  color: white;
+  background-color: rgb(159, 117, 255);
+  padding: 10px 30px;
+  font-size: 30px;
+  border-radius: 5px;
+  margin-top: 20px;
+  transition: 0.3s ease;
+}
+
+.dashboard-create a:hover {
+  color: white;
+  background-color: rgb(59, 3, 79);
+}
+
+.button-invite a {
+  color: white;
+  background-color: rgb(159, 117, 255);
+  padding: 5px 10px;
+  font-size: 20px;
+  border-radius: 5px;
+  margin-top: 20px;
+  transition: 0.3s ease;
+}
+
+.button-invite a:hover {
+  color: white;
+  background-color: rgb(59, 3, 79);
+}
+
+.button_to {
+  color: white;
+  background-color: rgb(159, 117, 255);
+  padding: 5px 10px;
+  font-size: 20px;
+  border-radius: 5px;
+  margin-top: 10px;
+  transition: 0.3s ease;
+}
+
+.button_to:hover {
+  color: white;
+  background-color: rgb(59, 3, 79);
+}
+
+.button-invite {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
