@@ -57,7 +57,7 @@
   <%= link_to "Back to Group", group_path(@user.members.first.group_id) %>
 <% end %>
  </div>
- 
+
 <div class="container-show">
 <br>
 <% if current_user.groups.empty? == false %>
@@ -65,11 +65,11 @@
     <p></p>
   <% elsif @user.members.empty? == true %>
     <div class="button-invite">
-    <%= button_to current_user.groups[0].name,  new_member_user_path(@user.nickname), method: :post %>
+    <%= button_to "Invite to your group",  new_member_user_path(@user.nickname), method: :post %>
     </div>
   <% elsif @user.members.first.status != "accepted" %>
     <div class="button-invite">
-    <%= button_to current_user.groups[0].name,  new_member_user_path(@user.nickname), method: :post %>
+    <%= button_to "Invite to your group",  new_member_user_path(@user.nickname), method: :post %>
     </div>
   <% end %>
 <% end %>
