@@ -1,7 +1,7 @@
 <div class="pic-dashboard">
     <h3>Welcome back, </h3>
       <%= link_to user_path(current_user) do%>
-        <%= cl_image_tag current_user.photos.first.key if current_user.photos.attached? %>
+        <%= cl_image_tag current_user.photos.first.key, height: 85, width: 85, crop: :fill if current_user.photos.attached? %>
       <% end %>
       <h1><%= current_user.first_name %> <%= current_user.last_name %></h1>
 </div>
@@ -28,7 +28,7 @@
           </div>
            <div class="image1">
               <%= link_to user_path(member.group.user) do %>
-                <%= cl_image_tag member.group.user.photos.first.key if member.group.user.photos.attached? %>
+                <%= cl_image_tag member.group.user.photos.first.key, height: 85, width: 85, crop: :fill if member.group.user.photos.attached? %>
               <% end %>
               <h5> Owned by <%= member.group.user.first_name %> <%= member.group.user.last_name %> <i class="fa-solid fa-house-chimney-user fa-xs" style="color: #583f91;"></i></h5>
               </div>
@@ -50,7 +50,7 @@
           </div>
            <div class="image1">
               <%= link_to user_path(Group.find(member.group_id).user) do %>
-                <%= cl_image_tag Group.find(member.group_id).user.photos.first.key if Group.find(member.group_id).user.photos.attached? %>
+                <%= cl_image_tag Group.find(member.group_id).user.photos.first.key, height: 85, width: 85, crop: :fill if Group.find(member.group_id).user.photos.attached? %>
               <% end %>
               <h5> By <%= Group.find(member.group_id).user.first_name %> <%= Group.find(member.group_id).user.last_name %> <i class="fa-solid fa-house-chimney-user fa-xs" style="color: #583f91;"></i></h5>
             </div>
@@ -94,7 +94,7 @@
               </div>
               <div class="image1">
               <%= link_to user_path(member.user) do %>
-                <%= cl_image_tag member.user.photos.first.key if member.user.photos.attached? %>
+                <%= cl_image_tag member.user.photos.first.key, height: 85, width: 85, crop: :fill if member.user.photos.attached? %>
               <% end %>
               <h5> Was invited to your group <i class="fa-solid fa-house-chimney-user fa-xs" style="color: #583f91;"></i></h5>
               </div>
@@ -117,7 +117,7 @@
               </div>
               <div class="image">
               <%= link_to user_path(member.user) do %>
-                <%= cl_image_tag member.user.photos.first.key if member.user.photos.attached? %>
+                <%= cl_image_tag member.user.photos.first.key, height: 85, width: 85, crop: :fill if member.user.photos.attached? %>
               <% end %>
               <h5> <strong><%= member.user.first_name %> <%= member.user.last_name %></strong> <i class="fa-solid fa-house-chimney-user fa-xs" style="color: #583f91;"></i></h5>
               </div>

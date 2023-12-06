@@ -10,7 +10,7 @@
 <% else %>
   <div id="message-<%= message.id %>" class= "message d-flex mt-3">
   <div class="msg-avatar">
-    <%= cl_image_tag message.user.photos.first.key,  class: "message-avatar" %>
+    <%= cl_image_tag message.user.photos.first.key, height: 85, width: 85, crop: :fill class: "message-avatar" %>
   </div>
     <div class= "container-bubble">
         <div class="bubble-content d-flex mt-3">
