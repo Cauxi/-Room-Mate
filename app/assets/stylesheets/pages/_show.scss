@@ -79,3 +79,49 @@ h2 {
 
 
 }
+.card-content {
+  .avatar {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    margin: 10px;
+    max-height: 100%;
+  }
+  }
+
+.card-container {
+  background-color: white;
+  margin-right: 10px;
+  width: 350px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 3px gray;
+  align-self: center;
+  position: sticky;
+  border: 1px solid #6804FC;
+  margin: 20px;
+
+  p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    text-align:justify;
+    overflow: hidden;
+    position: relative;
+    align-self: flex-start;
+    margin-right: 10px;
+    color: black;
+    opacity: 0.9;
+    
+  }
+  h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 35px;
+    text-align: justify;
+    position: relative;
+    align-self: flex-start;
+
+
+  }
+}
+.groups {
+  color: #6804FC;
+}
