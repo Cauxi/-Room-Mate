@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get '/users/:nickname', to: 'users#show', as: 'user'
   patch "/members/:id/accept", to: "members#accept", as: "accept"
   patch "/members/:id/reject", to: "members#reject", as: "reject"
+  patch "/members/:id/check", to: "members#check", as: "check"
   get "/dashboard", to: "users#dashboard", as: "dashboard"
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

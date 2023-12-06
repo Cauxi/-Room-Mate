@@ -97,6 +97,11 @@
                 <%= cl_image_tag member.user.photos.first.key, height: 85, width: 85, crop: :fill if member.user.photos.attached? %>
               <% end %>
               <h5> Was invited to your group <i class="fa-solid fa-house-chimney-user fa-xs" style="color: #583f91;"></i></h5>
+              <% if member.status != "pending" && member.check == "no" %>
+                <div class="new">
+                <%= link_to check_path(member), data: {turbo_method: :patch} do %> New </i><% end %>
+                </div>
+              <% end %>
               </div>
           </div>
 
