@@ -1,7 +1,6 @@
 <% if message.user == current_user %>
   <div id="message-<%= message.id %>" class= "my-message mt-3">
-    <div class= "bubble">
-      <div class="bubble-title pt-3"></div>
+    <div class= "current-user-bubble">
       <div class="my-bubble-content d-flex mt-3">
         <p class= "mt-2"><%= message.content %></p>
       </div>
@@ -9,19 +8,14 @@
     </div>
   </div>
 <% else %>
-  <div id="message-<%= message.id %>" class= "message mt-3">
-    <div class= "bubble">
-      <div class="bubble-title pt-3">
-        <%= link_to user_path(message.user) do %>
-          <%= cl_image_tag message.user.photos.first.key,  class: "message-avatar" %>
-        <% end %>
-        <div class="title-name ms-4">
-          <strong><%= message.user.nickname %></strong>
+  <div id="message-<%= message.id %>" class= "message d-flex mt-3">
+  <div class="msg-avatar">
+    <%= cl_image_tag message.user.photos.first.key,  class: "message-avatar" %>
+  </div>
+    <div class= "container-bubble">
+        <div class="bubble-content d-flex mt-3">
+          <p class= "mt-2 ms-3"><%= message.content %></p>
         </div>
-      </div>
-      <div class="bubble-content d-flex mt-3">
-        <p class= "mt-2"><%= message.content %></p>
-      </div>
         <i class="data"><%= message.created_at.strftime("%e %b %y %H:%M%p")%></i>
     </div>
   </div>
