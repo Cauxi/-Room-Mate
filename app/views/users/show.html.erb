@@ -50,23 +50,29 @@
 </div>
 </div>
 
-<div class="container">
-<br>
-<% if current_user.groups.empty? == false %>
-  <% if @user.groups.empty? == false %>
-    <p></p>
-  <% elsif @user.members.empty? == true %>
-    <%= button_to current_user.groups[0].name,  new_member_user_path(@user.nickname), method: :post %>
-  <% elsif @user.members.first.status != "accepted" %>
-    <%= button_to current_user.groups[0].name,  new_member_user_path(@user.nickname), method: :post %>
-  <% end %>
-<% end %>
-<br>
-
+<div class="button-invite">
 <% if @user.groups.empty? == false %>
   <%= link_to "Back to Group", group_path(@user.groups.first) %>
 <% elsif @user.members.empty? == false %>
   <%= link_to "Back to Group", group_path(@user.members.first.group_id) %>
 <% end %>
+ </div>
+ 
+<div class="container-show">
+<br>
+<% if current_user.groups.empty? == false %>
+  <% if @user.groups.empty? == false %>
+    <p></p>
+  <% elsif @user.members.empty? == true %>
+    <div class="button-invite">
+    <%= button_to current_user.groups[0].name,  new_member_user_path(@user.nickname), method: :post %>
+    </div>
+  <% elsif @user.members.first.status != "accepted" %>
+    <div class="button-invite">
+    <%= button_to current_user.groups[0].name,  new_member_user_path(@user.nickname), method: :post %>
+    </div>
+  <% end %>
+<% end %>
+<br>
 </div>
 </div>
