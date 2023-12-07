@@ -25,7 +25,11 @@
     <div class="card-content card-container d-flex mt-3">
       <%= cl_image_tag @group.user.photos.first.key, class: "avatar" if @group.user.photos.attached? %>
       <div class="card-product-infos">
-        <h2 class="groups"> Me</h2>
+      <% if @group.user == current_user %>
+        <h2 class="groups">Me</h2>
+      <% else %>
+        <h2 class="groups"><%= @group.user.first_name %></h2>
+      <% end %>
         <p><%= @group.user.description %></p>
       </div>
     </div>
@@ -37,7 +41,11 @@
         <div class="card-content card-container d-flex mt-3">
           <%= cl_image_tag member.user.photos.first.key,class: "avatar" %>
           <div class="card-product-infos">
+          <% if member.user == current_user %>
+            <h2 class="groups">Me</h2>
+          <% else %>
             <h2 class="groups"> <%= member.user.first_name%></h2>
+          <% end %>
             <p><%= member.user.description %></p>
           </div>
         </div>
