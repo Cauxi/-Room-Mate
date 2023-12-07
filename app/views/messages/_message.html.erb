@@ -1,5 +1,5 @@
-<% if message.user == current_user %>
-  <div id="message-<%= message.id %>" class= "my-message mt-3">
+
+  <div hidden data-controller="messages-styling"  data-messages-styling-target="message" data-message-user-id="<%= message.user.id %>" id="message-<%= message.id %>" class= "my-message mt-3">
     <div class= "current-user-bubble">
       <div class="my-bubble-content d-flex mt-3">
         <p class= "mt-2"><%= message.content %></p>
@@ -7,8 +7,8 @@
        <i class="data"><%= message.created_at.strftime("%e %b %y %H:%M%p")%></i>
     </div>
   </div>
-<% else %>
-  <div id="message-<%= message.id %>" class= "message d-flex mt-3">
+
+  <div hidden  data-controller="messages-hiding"  data-messages-hiding-target="message" data-message-user-id="<%= message.user.id %>" id="message-<%= message.id %>" class= "message d-flex mt-3">
   <div class="msg-avatar">
     <%= cl_image_tag message.user.photos.first.key, height: 30, width: 30, crop: :fill, class: "message-avatar" %>
   </div>
@@ -19,4 +19,3 @@
         <i class="data"><%= message.created_at.strftime("%e %b %y %H:%M%p")%></i>
     </div>
   </div>
-<% end %>
