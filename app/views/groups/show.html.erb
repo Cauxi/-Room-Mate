@@ -62,26 +62,6 @@
  <% end %>
 <% end %>
 
-<% if @group.user_id == current_user.id %>
- <% if @group.chatroom != nil %>
-  <div class="button-invite">
-    <%= link_to "Open chat", chatroom_path(@group.chatroom) %>
-  </div>
- <% end %>
-<% end %>
-
-<% if @group.user_id != current_user.id %>
-  <% if current_user.members.empty? == false %>
-    <% if current_user.members.where(:status => "accepted").exists? %>
-      <% if @group.chatroom != nil %>
-        <div class="button-invite">
-        <%= link_to "Open chat", chatroom_path(@group.chatroom), class: "btn" %>
-        </div>
-      <% end %>
-    <% end %>
-  <% end %>
-<% end %>
-
 <% if current_user.members.empty? == false %>
   <% if current_user.members.first.group_id == @group.id && current_user.members.where(:status => "accepted").exists? %>
   <div class="button-invite">
