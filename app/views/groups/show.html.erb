@@ -41,31 +41,18 @@
         <div class="card-content card-container d-flex mt-3">
           <%= cl_image_tag member.user.photos.first.key,class: "avatar" %>
           <div class="card-product-infos">
-          <% if member.user == current_user %>
-            <h2 class="groups">Me</h2>
-          <% else %>
-            <h2 class="groups"> <%= member.user.first_name%></h2>
-          <% end %>
+            <% if member.user == current_user %>
+              <h2 class="groups">Me</h2>
+            <% else %>
+              <h2 class="groups"> <%= member.user.first_name%></h2>
+            <% end %>
             <p><%= member.user.description %></p>
           </div>
-            <p><%= @group.user.description %></p>
         </div>
     <% end %>
+  <% end %>
+<% end %>
 
-    <% @group.members.each do |member| %>
-      <% if member.status == "accepted" %>
-        <%= link_to user_path(member.user) do %>
-            <div class="card-content card-container mt-3">
-               <div class="img-name">
-                <%= cl_image_tag member.user.photos.first.key,class: "avatar" %>
-                <h2 class="groups"> <%= member.user.first_name%> <%= member.user.last_name%></h2>
-               </div>
-               <p><%= member.user.description %></p>
-            </div>
-        <% end %>
-      <% end %>
-    <% end %>
-  </div>
 
 <% if @group.user_id == current_user.id %>
  <% if @group.chatroom == nil %>
