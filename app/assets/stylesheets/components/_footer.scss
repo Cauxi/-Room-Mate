@@ -43,3 +43,8 @@ body {
  top: 3px;
  left: 25px;
 }
+
+.footer-links a[aria-current="page"] {
+  border-bottom: 5px solid rgb(221, 81, 242);
+  padding-bottom: 1px;
+}

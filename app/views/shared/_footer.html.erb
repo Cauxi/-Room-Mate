@@ -1,15 +1,15 @@
 <% if user_signed_in? %>
   <div class="footer">
-    <div class="footer-links">
+    <div class="footer-links" data-controller="footer-style">
 
-             <%= link_to root_path do %> <i class="fa-solid fa-house-user"></i><% end %>
+             <%= link_to root_path, data: { footer_style_target: "link" } do %> <i class="fa-solid fa-house-user"></i><% end %>
 
 
             <% if current_user.groups.first == nil %>
                 <% if current_user.members.first != nil %>
                     <% if current_user.members.first.status == "accepted" %>
 
-                        <%= link_to group_path(current_user.members.first.group_id) do %> <i class="fa-solid fa-users"></i> <% end %>
+                        <%= link_to group_path(current_user.members.first.group_id), data: { footer_style_target: "link" } do %> <i class="fa-solid fa-users"></i> <% end %>
 
                     <% end %>
                 <% end %>
@@ -18,7 +18,7 @@
             <% if current_user.groups.first != nil %>
                       <% if current_user.groups.first["user_id"] == current_user.id %>
 
-                          <%= link_to group_path(current_user.groups.first) do %> <i class="fa-solid fa-users"></i> <% end %>
+                          <%= link_to group_path(current_user.groups.first), data: { footer_style_target: "link" } do %> <i class="fa-solid fa-users"></i> <% end %>
 
                       <% end %>
             <% end %>
@@ -27,7 +27,7 @@
                 <% if current_user.members.first != nil %>
                     <% if current_user.members.first.status == "accepted" %>
                       <% if Group.find(current_user.members.first.group_id).chatroom != nil  %>
-                        <%= link_to chatroom_path(Group.find(current_user.members.first.group_id).chatroom) do %> <i class="fa-solid fa-comments"></i><% end %>
+                        <%= link_to chatroom_path(Group.find(current_user.members.first.group_id).chatroom), data: { footer_style_target: "link" } do %> <i class="fa-solid fa-comments"></i><% end %>
                       <% end %>
                     <% end %>
                 <% end %>
@@ -37,7 +37,7 @@
                       <% if current_user.groups.first["user_id"] == current_user.id %>
                         <% if current_user.groups.first.chatroom != nil %>
 
-                            <%= link_to chatroom_path(current_user.groups.first.chatroom) do %> <i class="fa-solid fa-comments"></i><% end %>
+                            <%= link_to chatroom_path(current_user.groups.first.chatroom), data: { footer_style_target: "link" } do %> <i class="fa-solid fa-comments"></i><% end %>
 
                         <% end %>
                       <% end %>
@@ -47,7 +47,7 @@
 
             <div class="notification">
               <% if current_user %>
-                <%= link_to dashboard_path do %> <i class="fa-solid fa-user"></i><% end %>
+                <%= link_to dashboard_path, data: { footer_style_target: "link" } do %> <i class="fa-solid fa-user"></i><% end %>
                 <% if @members_pending != 0 %>
                 <%= link_to  dashboard_path do %> <i id="button-green" class="fa-solid fa-circle fa-2xs" style="color: #4cf349;"></i> <% end %>
                 <% end %>
