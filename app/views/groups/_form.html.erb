@@ -1,6 +1,7 @@
 
-<h1>New group</h1>
+<h1 class="h1-new">New group</h1>
 
+<div class="container-new">
   <%= simple_form_for(@group) do |f| %>
     <div class="form-inputs">
       <%= f.input :name %>
@@ -9,3 +10,4 @@
       <%= f.submit "Submit group", class: "btn btn-dark" %>
     </div>
   <% end %>
+</div>

@@ -26,6 +26,7 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  position: relative;
 }
 
 body {
@@ -34,4 +35,11 @@ body {
   max-width: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
+}
+
+#button-green {
+ font-size: 14px;
+ position: absolute;
+ top: 3px;
+ left: 25px;
 }

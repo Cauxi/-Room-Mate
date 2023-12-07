@@ -2,10 +2,6 @@
   p {
     margin: 0;
   }
-
-  a{
-    width: 20px;
-  }
 }
 
 .my-message{
@@ -115,7 +111,18 @@ button{
 .msg-avatar {
   display: flex;
   align-items: end;
-  width: 20px;
-  margin-right: 20px;
-  min-height: 100%;
+}
+
+.message-avatar {
+  border-radius: 50%;
+  margin: 15px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 10px;
+  width: 30px;
+  margin: 15px 0 15px 15px;
+}
+
+[hidden] {
+  display: none !important;
 }

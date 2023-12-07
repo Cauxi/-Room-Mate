@@ -46,6 +46,13 @@ class MembersController < ApplicationController
     redirect_to dashboard_path
   end
 
+  def check
+    @member = Member.find(params[:id])
+    @member.check = "yes"
+    @member.save
+    redirect_to dashboard_path
+  end
+
   def destroy
     @member = Member.find(current_user.members.first.id)
     @member.destroy

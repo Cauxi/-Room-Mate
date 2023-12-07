@@ -11,18 +11,10 @@ class PagesController < ApplicationController
         user.groups.empty? && user.members.where(:status => "accepted").exists? == false
       end
     end
-    # @users = User.where(location: current_user.location).where()
-    # @users = User.where(location: current_user.location).select do |user|
-    #   User.where(user.tags.split(",") & current_user.tags.split(",")).any?
-    # end
 
     if params[:query].present?
       @groups = @groups.where("name ILIKE ?", "%#{params[:query]}%")
-    end
-
-    if params[:query].present?
-      sql_subquery = "tags @@ :query OR location @@ :query"
-      @users = @users.where(sql_subquery, query: "%#{params[:query]}%")
+      @users_show = @users.where("tags ILIKE ?", "%#{params[:query]}%").where.not(id: current_user.id)
     end
 
     if current_user

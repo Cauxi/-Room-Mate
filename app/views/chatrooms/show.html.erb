@@ -1,16 +1,17 @@
-
+<div class="button-invite">
 <% if current_user.groups.empty? == false %>
   <%= link_to "Back to Group", group_path(current_user.groups.first) %>
 <% elsif current_user.members.empty? == false %>
   <%= link_to "Back to Group", group_path(current_user.members.first.group_id),  class: "btn" %>
 <% end %>
+</div>
 
 <div class="container-chatroom"
 
   data-controller="chatroom-subscription"
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
 >
-  <h1>#<%= @chatroom.name %></h1>
+  <h1 class="h1-chatroom">#<%= @chatroom.name %></h1>
 
 
   <div class="messages" data-chatroom-subscription-target="messages">

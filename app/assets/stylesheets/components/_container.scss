@@ -120,7 +120,6 @@
 
 .pic-dashboard img {
   border-radius: 50%;
-  height: 100px;
   opacity: 0.9;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
@@ -192,7 +191,6 @@
 
 .dashboard-card1 img {
   border-radius: 50%;
-  height: 85px;
 }
 
 .image {
@@ -263,4 +261,52 @@
   position: absolute;
   top: -14px;
   left: -2px;
+}
+
+.new a {
+  color: white;
+  background-color: rgb(221, 81, 242);
+  padding: 5px 5px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 14px;
+  position: absolute;
+  top: -5px;
+  left: -2px;
+}
+
+// new-group Tiago
+
+.container-new {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.h1-new {
+  margin-top: 50px;
+}
+
+// new-chat Tiago
+
+.container-new-chat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.h1-new-chat {
+  margin-top: 50px;
+}
+
+// chatroom Tiago
+
+.h1-chatroom {
+  margin-top: 20px;
+}
+// show-Tiago
+#about-me p {
+  text-align: start;
 }
