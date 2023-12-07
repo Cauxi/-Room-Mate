@@ -20,32 +20,39 @@
 <% end %>
 
 
-<h2 class="h2-groups">Members of the group</h2>
-  <div class="card-show-group">
-    <%= link_to user_path(@group.user) do %>
-        <div class="card-content card-container">
-          <div class="img-name">
-          <%= cl_image_tag @group.user.photos.first.key, class: "avatar" if @group.user.photos.attached? %>
-            <h2 class="groups"> <%= @group.user.first_name %> <%= @group.user.last_name %></h2>
+<h2>Members of the group</h2>
+<%= link_to user_path(@group.user) do %>
+    <div class="card-content card-container d-flex mt-3">
+      <%= cl_image_tag @group.user.photos.first.key, class: "avatar" if @group.user.photos.attached? %>
+      <div class="card-product-infos">
+      <% if @group.user == current_user %>
+        <h2 class="groups">Me</h2>
+      <% else %>
+        <h2 class="groups"><%= @group.user.first_name %></h2>
+      <% end %>
+        <p><%= @group.user.description %></p>
+      </div>
+    </div>
+<% end %>
+
+<% @group.members.each do |member| %>
+  <% if member.status == "accepted" %>
+    <%= link_to user_path(member.user) do %>
+        <div class="card-content card-container d-flex mt-3">
+          <%= cl_image_tag member.user.photos.first.key,class: "avatar" %>
+          <div class="card-product-infos">
+            <% if member.user == current_user %>
+              <h2 class="groups">Me</h2>
+            <% else %>
+              <h2 class="groups"> <%= member.user.first_name%></h2>
+            <% end %>
+            <p><%= member.user.description %></p>
           </div>
-            <p><%= @group.user.description %></p>
         </div>
     <% end %>
+  <% end %>
+<% end %>
 
-    <% @group.members.each do |member| %>
-      <% if member.status == "accepted" %>
-        <%= link_to user_path(member.user) do %>
-            <div class="card-content card-container mt-3">
-               <div class="img-name">
-                <%= cl_image_tag member.user.photos.first.key,class: "avatar" %>
-                <h2 class="groups"> <%= member.user.first_name%> <%= member.user.last_name%></h2>
-               </div>
-               <p><%= member.user.description %></p>
-            </div>
-        <% end %>
-      <% end %>
-    <% end %>
-  </div>
 
 <% if @group.user_id == current_user.id %>
  <% if @group.chatroom == nil %>
@@ -53,26 +60,6 @@
   <%= link_to "Create a new chat", new_group_chatroom_path(@group) %>
  </div>
  <% end %>
-<% end %>
-
-<% if @group.user_id == current_user.id %>
- <% if @group.chatroom != nil %>
-  <div class="button-invite">
-    <%= link_to "Open chat", chatroom_path(@group.chatroom) %>
-  </div>
- <% end %>
-<% end %>
-
-<% if @group.user_id != current_user.id %>
-  <% if current_user.members.empty? == false %>
-    <% if current_user.members.where(:status => "accepted").exists? %>
-      <% if @group.chatroom != nil %>
-        <div class="button-invite">
-        <%= link_to "Open chat", chatroom_path(@group.chatroom), class: "btn" %>
-        </div>
-      <% end %>
-    <% end %>
-  <% end %>
 <% end %>
 
 <% if current_user.members.empty? == false %>
