@@ -34,7 +34,7 @@ puts "kortney"
 
 file10 = URI.open("https://instagram.fopo3-2.fna.fbcdn.net/v/t51.2885-15/405794253_1064022451294728_6087255112269182935_n.jpg?stp=dst-jpg_e35&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xNDQweDE4MDAuc2RyIn0&_nc_ht=instagram.fopo3-2.fna.fbcdn.net&_nc_cat=100&_nc_ohc=A-wcC6xt34gAX9bHCZ6&edm=ACWDqb8BAAAA&ccb=7-5&ig_cache_key=MzI0ODk0MTM3MTg3NTc4MTU2Nw%3D%3D.2-ccb7-5&oh=00_AfBCMJet0eYXw0XoSyeA2Dbv2iSmJJMp-fbThuVGMDNqQg&oe=65748660&_nc_sid=ee9879")
 file11 = URI.open("https://instagram.fopo3-1.fna.fbcdn.net/v/t51.2885-15/378521534_849983053138698_3565991360571487535_n.jpg?stp=dst-jpg_e35&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xNDQweDE4MDAuc2RyIn0&_nc_ht=instagram.fopo3-1.fna.fbcdn.net&_nc_cat=106&_nc_ohc=pqSJbJMqUcEAX9OuVue&edm=ABmJApABAAAA&ccb=7-5&ig_cache_key=MzE5MzM4OTczODk1NDAzOTU4OQ%3D%3D.2-ccb7-5&oh=00_AfAZ80MRK4ELvtzCNxbSnT2KrRUq9tocph30oJaydQubyQ&oe=65760F2F&_nc_sid=b41fef")
-file12 = URI.open("https://instagram.fopo3-1.fna.fbcdn.net/v/t51.2885-15/367524456_160811773703252_2218415290754494244_n.jpg?stp=dst-jpg_e35&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xNDQweDE4MDAuc2RyIn0&_nc_ht=instagram.fopo3-1.fna.fbcdn.net&_nc_cat=108&_nc_ohc=PJRzVevMlLMAX-xBKwC&edm=ABmJApABAAAA&ccb=7-5&ig_cache_key=MzE3MDgzNDMyNTMxODQyODI5Nw%3D%3D.2-ccb7-5&oh=00_AfA3sKVI_GKgTgtU17lBbdQ0BIKsJHVTPrZ_pRKbdkRcwg&oe=6575D716&_nc_sid=b41fef")
+file12 = URI.open(" ")
 user6 = User.new(first_name: "Kortney", last_name: "Coleman", nickname: "kortneyeliesecoleman", age: 28, location: "Porto", description: "I am going to live in Porto for at least the next year, since I got a promotion at work. Unfortunatly I had no idea how high the prices of houses where 😬. I also like to record videos for my youtube channel at home!", email: "kortney@lewagon.com", password: "123456", gender: "Female", tags: "Gym, Coffee, Nightlife, Youtube")
 user6.photos.attach([
   {io: file10, filename: 'file10.png', content_type: 'image/png'},
@@ -68,12 +68,10 @@ user3.photos.attach([
 ])
 puts "ze"
 file5 = URI.open("https://instagram.fopo3-2.fna.fbcdn.net/v/t51.2885-15/394663346_1414011049328544_4082196737212593169_n.jpg?stp=dst-jpg_e35&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xNDQweDk1Ny5zZHIifQ&_nc_ht=instagram.fopo3-2.fna.fbcdn.net&_nc_cat=100&_nc_ohc=kX-mpVhrGGYAX8kS38P&edm=ACWDqb8BAAAA&ccb=7-5&ig_cache_key=MzIyMDEzODQxNjI3NTgyMDExOA%3D%3D.2-ccb7-5&oh=00_AfChfGeY407A0uDWqhOniH0C_qb6s30XAN_3_nY-Mk_RRA&oe=6573A8D3&_nc_sid=ee9879")
-file6 = URI.open("https://instagram.fopo3-1.fna.fbcdn.net/v/t51.2885-15/379430655_679389590914211_761366625769379279_n.jpg?stp=dst-jpg_e35&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xNDQweDE4MDAuc2RyIn0&_nc_ht=instagram.fopo3-1.fna.fbcdn.net&_nc_cat=111&_nc_ohc=NPqm1aG2b38AX9rMJQ1&edm=ACWDqb8BAAAA&ccb=7-5&ig_cache_key=MzE5MzIxMTc2NjY0MDY0MjM1NA%3D%3D.2-ccb7-5&oh=00_AfDZ6hz_97OEPDehyoduKE-5Nmu-Cf5126SPTFx8ncUdGg&oe=6572F395&_nc_sid=ee9879")
 file7 = URI.open("https://instagram.fopo3-1.fna.fbcdn.net/v/t51.2885-15/367875323_669424211908835_7573018749801744408_n.jpg?stp=dst-jpg_e35&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xNDQweDE4MDAuc2RyIn0&_nc_ht=instagram.fopo3-1.fna.fbcdn.net&_nc_cat=111&_nc_ohc=ylZpmufOKjEAX80CPXU&edm=ABmJApABAAAA&ccb=7-5&ig_cache_key=MzE2OTk4MzMwMDA2MzY2NDk2OQ%3D%3D.2-ccb7-5&oh=00_AfAQLDbg1drjba18rsS1Sq0xSkVUTiUqJN9IvcjymUqHWA&oe=65735534&_nc_sid=b41fef")
 user4 = User.new(first_name: "Zé", last_name: "Alves", nickname: "zequinha", age: 31, location: "Porto", description: "I am a summer and beach enthusiast! I am looking to move out from my current home to a more pleasent enviroment.", email: "ze@lewagon.com", password: "123456", gender: "Male", tags: "Beer, Travel, Fashion, Wakeboarding")
 user4.photos.attach([
   {io: file5, filename: 'file5.png', content_type: 'image/png'},
-  {io: file6, filename: 'file6.png', content_type: 'image/png'},
   {io: file7, filename: 'file7.png', content_type: 'image/png'},
 ])
 
