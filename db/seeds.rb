@@ -12,7 +12,11 @@ puts "Creating users..."
 puts "tiago"
 user1 = User.new(first_name: "Tiago", last_name: "Neto", nickname: "tiaguito", age: 27, location: "Porto", description: "I've been travelling the world for the last year. I am looking for a place in Porto, now that I finished my bootcamp with Le Wagon. If you're a surfer we can catch some waves in the mornings :).", email: "tiago@lewagon.com", password: "123456", gender: "Male", tags: "Surf, Travel, Foodie")
 file1 = URI.open("https://avatars.githubusercontent.com/u/144708452?v=4")
-user1.photos.attach(io: file1, filename: "file1.png", content_type: "image/png")
+file18 = URI.open("https://instagram.fopo3-2.fna.fbcdn.net/v/t51.2885-15/343930127_966211527850742_1180832784593740741_n.webp?stp=dst-jpg_e35&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xMDgweDEwODAuc2RyIn0&_nc_ht=instagram.fopo3-2.fna.fbcdn.net&_nc_cat=102&_nc_ohc=eDfoO96f7AMAX-AItM9&edm=ABmJApABAAAA&ccb=7-5&ig_cache_key=MzA5MzEwNDgxMjc2MjIwMTk5Ng%3D%3D.2-ccb7-5&oh=00_AfA3BSOJCTfZcB5SzgP310sBlgRJ9QIA5y-jEH_tla8-cg&oe=6577CF19&_nc_sid=b41fef")
+user1.photos.attach([
+  {io: file1, filename: "file1.png", content_type: "image/png"},
+  {io: file18, filename: "file18.png", content_type: "image/png"},
+])
 puts "raquel"
 user5 = User.new(first_name: "Raquel", last_name: "Barbosa", nickname: "raquelbarbosa94", age: 29, location: "Porto", description: "I am never at home, and I like to see the world. I am looking for one roomie to share a flat with, invite me if you don't mind me watching movies until 3 am.", email: "raquel@lewagon.com", password: "123456", gender: "Female", tags: "Movies, Nature, Coffee, Music")
 file8 = URI.open("https://scontent.cdninstagram.com/v/t51.2885-15/132842085_829179584567743_3453825774947591087_n.jpg?stp=dst-jpg_e35&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xNDQweDE2NDMuc2RyIn0&_nc_ht=scontent.cdninstagram.com&_nc_cat=107&_nc_ohc=u3Eq-2ktvZ0AX80XcOd&edm=APs17CUBAAAA&ccb=7-5&ig_cache_key=MjQ3Mjg0MDI1OTY2NDAwMzE5OQ%3D%3D.2-ccb7-5&oh=00_AfDbpYRXwZ0SLLGsJmMbXKgIcOegHM1jSd1tKPQFGvrxaw&oe=65749522&_nc_sid=10d13b")
