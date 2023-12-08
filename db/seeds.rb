@@ -58,14 +58,14 @@ user2 = User.new(first_name: "João", last_name: "Martins", nickname: "BigJ", ag
 user2.photos.attach([
   {io: file2, filename: 'file2.png', content_type: 'image/png'},
 ])
-puts "pedro"
-file3 = URI.open("https://instagram.fopo3-2.fna.fbcdn.net/v/t51.2885-15/13277839_1610460802601978_1266989538_n.jpg?stp=dst-jpg_e35&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi42Njh4Njk3LnNkciJ9&_nc_ht=instagram.fopo3-2.fna.fbcdn.net&_nc_cat=102&_nc_ohc=o2CYE-dVciwAX8n7K6Q&edm=ABmJApABAAAA&ccb=7-5&ig_cache_key=MTI2MTE2NDcwNzMwNDc2NDUyNA%3D%3D.2-ccb7-5&oh=00_AfB2ndAYInFc55PCR49LUCHailZt4NGLhAB_Jq2-LIPXfg&oe=6573163A&_nc_sid=b41fef")
-file4 = URI.open("https://instagram.fopo3-2.fna.fbcdn.net/v/t51.2885-15/10724854_1518432225070226_1463857244_n.jpg?stp=dst-jpg_e15&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi42NDB4NjQwLnNkciJ9&_nc_ht=instagram.fopo3-2.fna.fbcdn.net&_nc_cat=102&_nc_ohc=BWEM6v1IqOAAX-9UjhI&edm=ABmJApABAAAA&ccb=7-5&ig_cache_key=ODMxMTkxMzMxNTEyMDU0Nzkx.2-ccb7-5&oh=00_AfAIXSaGilem9n39dhFPAMKplk-FiuIEZv2iw1LCxq9HWQ&oe=657305E7&_nc_sid=b41fef")
-user3 = User.new(first_name: "João", last_name: "Amaral", nickname: "pedrocas92", age: 29, location: "Porto", description: "I am a Graphic and Packaging Designer. Looking to move back to Porto after staying in the UK for 4 days. I am known to be clean and I like a quiet home to work from.", email: "pedro@lewagon.com", password: "123456", gender: "Male", tags: "Design, Art, Travel")
-user3.photos.attach([
-  {io: file3, filename: 'file3.png', content_type: 'image/png'},
-  {io: file4, filename: 'file4.png', content_type: 'image/png'},
-])
+# puts "pedro"
+# file3 = URI.open("https://instagram.fopo3-2.fna.fbcdn.net/v/t51.2885-15/13277839_1610460802601978_1266989538_n.jpg?stp=dst-jpg_e35&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi42Njh4Njk3LnNkciJ9&_nc_ht=instagram.fopo3-2.fna.fbcdn.net&_nc_cat=102&_nc_ohc=o2CYE-dVciwAX8n7K6Q&edm=ABmJApABAAAA&ccb=7-5&ig_cache_key=MTI2MTE2NDcwNzMwNDc2NDUyNA%3D%3D.2-ccb7-5&oh=00_AfB2ndAYInFc55PCR49LUCHailZt4NGLhAB_Jq2-LIPXfg&oe=6573163A&_nc_sid=b41fef")
+# file4 = URI.open("https://instagram.fopo3-2.fna.fbcdn.net/v/t51.2885-15/10724854_1518432225070226_1463857244_n.jpg?stp=dst-jpg_e15&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi42NDB4NjQwLnNkciJ9&_nc_ht=instagram.fopo3-2.fna.fbcdn.net&_nc_cat=102&_nc_ohc=BWEM6v1IqOAAX-9UjhI&edm=ABmJApABAAAA&ccb=7-5&ig_cache_key=ODMxMTkxMzMxNTEyMDU0Nzkx.2-ccb7-5&oh=00_AfAIXSaGilem9n39dhFPAMKplk-FiuIEZv2iw1LCxq9HWQ&oe=657305E7&_nc_sid=b41fef")
+# user3 = User.new(first_name: "João", last_name: "Amaral", nickname: "pedrocas92", age: 29, location: "Porto", description: "I am a Graphic and Packaging Designer. Looking to move back to Porto after staying in the UK for 4 days. I am known to be clean and I like a quiet home to work from.", email: "pedro@lewagon.com", password: "123456", gender: "Male", tags: "Design, Art, Travel")
+# user3.photos.attach([
+#   {io: file3, filename: 'file3.png', content_type: 'image/png'},
+#   {io: file4, filename: 'file4.png', content_type: 'image/png'},
+# ])
 puts "ze"
 file5 = URI.open("https://instagram.fopo3-2.fna.fbcdn.net/v/t51.2885-15/394663346_1414011049328544_4082196737212593169_n.jpg?stp=dst-jpg_e35&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xNDQweDk1Ny5zZHIifQ&_nc_ht=instagram.fopo3-2.fna.fbcdn.net&_nc_cat=100&_nc_ohc=kX-mpVhrGGYAX8kS38P&edm=ACWDqb8BAAAA&ccb=7-5&ig_cache_key=MzIyMDEzODQxNjI3NTgyMDExOA%3D%3D.2-ccb7-5&oh=00_AfChfGeY407A0uDWqhOniH0C_qb6s30XAN_3_nY-Mk_RRA&oe=6573A8D3&_nc_sid=ee9879")
 file7 = URI.open("https://instagram.fopo3-1.fna.fbcdn.net/v/t51.2885-15/367875323_669424211908835_7573018749801744408_n.jpg?stp=dst-jpg_e35&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xNDQweDE4MDAuc2RyIn0&_nc_ht=instagram.fopo3-1.fna.fbcdn.net&_nc_cat=111&_nc_ohc=ylZpmufOKjEAX80CPXU&edm=ABmJApABAAAA&ccb=7-5&ig_cache_key=MzE2OTk4MzMwMDA2MzY2NDk2OQ%3D%3D.2-ccb7-5&oh=00_AfAQLDbg1drjba18rsS1Sq0xSkVUTiUqJN9IvcjymUqHWA&oe=65735534&_nc_sid=b41fef")
@@ -87,8 +87,8 @@ puts "marie"
 user7.save
 puts "joao"
 user2.save
-puts "pedro"
-user3.save
+  # puts "pedro"
+  # user3.save
 puts "ze"
 user4.save
 
