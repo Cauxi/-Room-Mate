@@ -65,8 +65,8 @@ button{
 }
 
 .optional{
-  margin: 0 5px 0 0  !important;
-  width: 100%;
+  margin: 0 15px 0 5px  !important;
+  width: 300px;
 }
 
 .my-bubble-content{
@@ -125,4 +125,9 @@ button{
 
 [hidden] {
   display: none !important;
+}
+
+#message-box {
+  position: fixed;
+  bottom: 100px;
 }
