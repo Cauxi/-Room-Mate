@@ -77,13 +77,22 @@ user4.photos.attach([
   {io: file7, filename: 'file7.png', content_type: 'image/png'},
 ])
 
+puts "tiago"
 user1.save
+puts "raquel"
 user8.save
+puts "abdul"
 user5.save
+puts "kortney"
 user6.save
+puts "marie"
 user7.save
+puts "joao"
 user2.save
+puts "pedro"
 user3.save
+puts "ze"
 user4.save
+
 
 puts "Completed!"
