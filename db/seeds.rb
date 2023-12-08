@@ -84,8 +84,8 @@ puts "abdul"
 user5.save
 puts "kortney"
 user6.save
-puts "marie"
-user7.save
+# puts "marie"
+# user7.save
 puts "joao"
 user2.save
 puts "pedro"
