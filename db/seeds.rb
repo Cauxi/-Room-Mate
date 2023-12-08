@@ -34,7 +34,7 @@ puts "kortney"
 
 file10 = URI.open("https://instagram.fopo3-2.fna.fbcdn.net/v/t51.2885-15/405794253_1064022451294728_6087255112269182935_n.jpg?stp=dst-jpg_e35&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xNDQweDE4MDAuc2RyIn0&_nc_ht=instagram.fopo3-2.fna.fbcdn.net&_nc_cat=100&_nc_ohc=A-wcC6xt34gAX9bHCZ6&edm=ACWDqb8BAAAA&ccb=7-5&ig_cache_key=MzI0ODk0MTM3MTg3NTc4MTU2Nw%3D%3D.2-ccb7-5&oh=00_AfBCMJet0eYXw0XoSyeA2Dbv2iSmJJMp-fbThuVGMDNqQg&oe=65748660&_nc_sid=ee9879")
 file11 = URI.open("https://instagram.fopo3-1.fna.fbcdn.net/v/t51.2885-15/378521534_849983053138698_3565991360571487535_n.jpg?stp=dst-jpg_e35&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xNDQweDE4MDAuc2RyIn0&_nc_ht=instagram.fopo3-1.fna.fbcdn.net&_nc_cat=106&_nc_ohc=pqSJbJMqUcEAX9OuVue&edm=ABmJApABAAAA&ccb=7-5&ig_cache_key=MzE5MzM4OTczODk1NDAzOTU4OQ%3D%3D.2-ccb7-5&oh=00_AfAZ80MRK4ELvtzCNxbSnT2KrRUq9tocph30oJaydQubyQ&oe=65760F2F&_nc_sid=b41fef")
-file12 = URI.open(" ")
+file12 = URI.open("https://instagram.fopo3-1.fna.fbcdn.net/v/t51.2885-15/367524456_160811773703252_2218415290754494244_n.jpg?stp=dst-jpg_e35&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xNDQweDE4MDAuc2RyIn0&_nc_ht=instagram.fopo3-1.fna.fbcdn.net&_nc_cat=108&_nc_ohc=PJRzVevMlLMAX-xBKwC&edm=ABmJApABAAAA&ccb=7-5&ig_cache_key=MzE3MDgzNDMyNTMxODQyODI5Nw%3D%3D.2-ccb7-5&oh=00_AfA3sKVI_GKgTgtU17lBbdQ0BIKsJHVTPrZ_pRKbdkRcwg&oe=6575D716&_nc_sid=b41fef")
 user6 = User.new(first_name: "Kortney", last_name: "Coleman", nickname: "kortneyeliesecoleman", age: 28, location: "Porto", description: "I am going to live in Porto for at least the next year, since I got a promotion at work. Unfortunatly I had no idea how high the prices of houses where 😬. I also like to record videos for my youtube channel at home!", email: "kortney@lewagon.com", password: "123456", gender: "Female", tags: "Gym, Coffee, Nightlife, Youtube")
 user6.photos.attach([
   {io: file10, filename: 'file10.png', content_type: 'image/png'},
@@ -42,17 +42,16 @@ user6.photos.attach([
   {io: file12, filename: 'file12.png', content_type: 'image/png'},
 ])
 
-# puts "marie"
-# file13 = URI.open("https://instagram.fopo3-1.fna.fbcdn.net/v/t51.2885-15/367458770_187477497549750_4816709815697166029_n.jpg?stp=dst-jpg_e35&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xNDQweDE4MDAuc2RyIn0&_nc_ht=instagram.fopo3-1.fna.fbcdn.net&_nc_cat=106&_nc_ohc=rhNeTE8AMG4AX_gZB74&edm=ACWDqb8BAAAA&ccb=7-5&ig_cache_key=MzE2ODY1OTgxNTM5NDI5NTYxNw%3D%3D.2-ccb7-5&oh=00_AfAzGtdB_cLKkQVhnghU1Td-DuGQ-dpe2ik3lIzgdrlCBg&oe=6575C5AB&_nc_sid=ee9879")
-# file14 = URI.open("https://instagram.fopo3-2.fna.fbcdn.net/v/t51.2885-15/166339331_917946265690084_6463285579910067172_n.jpg?stp=dst-jpg_e35&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xNDQweDE4MDAuc2RyIn0&_nc_ht=instagram.fopo3-2.fna.fbcdn.net&_nc_cat=104&_nc_ohc=iLAAHvg_n5sAX_otZ_v&edm=ACWDqb8BAAAA&ccb=7-5&ig_cache_key=MjU0MTAwMTY4NTY2MTM5NDg2MA%3D%3D.2-ccb7-5&oh=00_AfCq9R5aaQyoNHKGwIPU22pb9F6YClu8oxliXZ7PTVpLSQ&oe=657374FB&_nc_sid=ee9879")
-# file15 = URI.open("https://scontent.cdninstagram.com/v/t51.2885-15/135325939_508845566753768_4131026957858391674_n.jpg?stp=dst-jpg_e35&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xNDQweDE0NDAuc2RyIn0&_nc_ht=scontent.cdninstagram.com&_nc_cat=108&_nc_ohc=Gh852iE4dsEAX8oeVek&edm=APs17CUBAAAA&ccb=7-5&ig_cache_key=MjQ3OTI0OTExNTIzMDcwNzA0Mg%3D%3D.2-ccb7-5&oh=00_AfAke3UCFk_2mayK6iVmnprNXHfQ8aZVWezmU9aZfTlFoA&oe=6575289E&_nc_sid=10d13b")
-# user7 = User.new(first_name: "Marie", last_name: "Antoinette", nickname: "marie_antoinette", age: 20, location: "Porto", description: "Hello you, I am from the Netherlands and I am going to study in Portugal. I want to find a big group for a big house!", email: "marie@lewagon.com", password: "123456", gender: "Female", tags: "Motorcycles, Nightlife, Vlogs")
-# user7.photos.attach([
-#   {io: file13, filename: 'file13.png', content_type: 'image/png'},
-#   {io: file14, filename: 'file14.png', content_type: 'image/png'},
-#   {io: file15, filename: 'file15.png', content_type: 'image/png'},
-# ])
-
+puts "marie"
+file13 = URI.open("https://instagram.fopo3-1.fna.fbcdn.net/v/t51.2885-15/367458770_187477497549750_4816709815697166029_n.jpg?stp=dst-jpg_e35&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xNDQweDE4MDAuc2RyIn0&_nc_ht=instagram.fopo3-1.fna.fbcdn.net&_nc_cat=106&_nc_ohc=rhNeTE8AMG4AX_gZB74&edm=ACWDqb8BAAAA&ccb=7-5&ig_cache_key=MzE2ODY1OTgxNTM5NDI5NTYxNw%3D%3D.2-ccb7-5&oh=00_AfAzGtdB_cLKkQVhnghU1Td-DuGQ-dpe2ik3lIzgdrlCBg&oe=6575C5AB&_nc_sid=ee9879")
+file14 = URI.open("https://instagram.fopo3-2.fna.fbcdn.net/v/t51.2885-15/166339331_917946265690084_6463285579910067172_n.jpg?stp=dst-jpg_e35&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xNDQweDE4MDAuc2RyIn0&_nc_ht=instagram.fopo3-2.fna.fbcdn.net&_nc_cat=104&_nc_ohc=iLAAHvg_n5sAX_otZ_v&edm=ACWDqb8BAAAA&ccb=7-5&ig_cache_key=MjU0MTAwMTY4NTY2MTM5NDg2MA%3D%3D.2-ccb7-5&oh=00_AfCq9R5aaQyoNHKGwIPU22pb9F6YClu8oxliXZ7PTVpLSQ&oe=657374FB&_nc_sid=ee9879")
+file15 = URI.open("https://scontent.cdninstagram.com/v/t51.2885-15/135325939_508845566753768_4131026957858391674_n.jpg?stp=dst-jpg_e35&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xNDQweDE0NDAuc2RyIn0&_nc_ht=scontent.cdninstagram.com&_nc_cat=108&_nc_ohc=Gh852iE4dsEAX8oeVek&edm=APs17CUBAAAA&ccb=7-5&ig_cache_key=MjQ3OTI0OTExNTIzMDcwNzA0Mg%3D%3D.2-ccb7-5&oh=00_AfAke3UCFk_2mayK6iVmnprNXHfQ8aZVWezmU9aZfTlFoA&oe=6575289E&_nc_sid=10d13b")
+user7 = User.new(first_name: "Marie", last_name: "Antoinette", nickname: "marie_antoinette", age: 20, location: "Porto", description: "Hello you, I am from the Netherlands and I am going to study in Portugal. I want to find a big group for a big house!", email: "marie@lewagon.com", password: "123456", gender: "Female", tags: "Motorcycles, Nightlife, Vlogs")
+user7.photos.attach([
+  {io: file13, filename: 'file13.png', content_type: 'image/png'},
+  {io: file14, filename: 'file14.png', content_type: 'image/png'},
+  {io: file15, filename: 'file15.png', content_type: 'image/png'},
+])
 puts "joao"
 file2 = URI.open("https://avatars.githubusercontent.com/u/107856581?v=4")
 user2 = User.new(first_name: "João", last_name: "Martins", nickname: "BigJ", age: 26, location: "Porto", description: "I love Le Wagon, it's the best company ever made, thank you Boris and Seb. Coma Bem is the best!", email: "joao@lewagon.com", password: "123456", gender: "Male", tags: "Gaming, Foodie, LH44, WebDev")
@@ -76,22 +75,21 @@ user4.photos.attach([
   {io: file7, filename: 'file7.png', content_type: 'image/png'},
 ])
 
-puts "tiago"
+puts "save tiago"
 user1.save
-puts "raquel"
+puts "save raquel"
 user8.save
 puts "abdul"
 user5.save
 puts "kortney"
 user6.save
-# puts "marie"
-# user7.save
+puts "marie"
+user7.save
 puts "joao"
 user2.save
 puts "pedro"
 user3.save
 puts "ze"
 user4.save
-
 
 puts "Completed!"
