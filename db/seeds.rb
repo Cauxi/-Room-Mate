@@ -10,7 +10,7 @@ puts "DB cleared"
 
 puts "Creating users..."
 puts "tiago"
-user1 = User.new(first_name: "Tiago", last_name: "Neto", nickname: "tiaguito", age: 27, location: "Porto", description: "I've been travelling the world for the last year. I am looking for a place in Porto, now that I finished my bootcamp with Le Wagon. If you're a surfer we can catch some waves in the mornings :).", email: "tiago@lewagon.com", password: "123456", gender: "Male", tags: "surf, travel, Foodie")
+user1 = User.new(first_name: "Tiago", last_name: "Neto", nickname: "tiaguito", age: 27, location: "Porto", description: "I've been travelling the world for the last year. I am looking for a place in Porto, now that I finished my bootcamp with Le Wagon. If you're a surfer we can catch some waves in the mornings :).", email: "tiago@lewagon.com", password: "123456", gender: "Male", tags: "Surf, Travel, Foodie")
 file1 = URI.open("https://avatars.githubusercontent.com/u/144708452?v=4")
 user1.photos.attach(io: file1, filename: "file1.png", content_type: "image/png")
 puts "raquel"
@@ -35,7 +35,7 @@ puts "kortney"
 file10 = URI.open("https://instagram.fopo3-2.fna.fbcdn.net/v/t51.2885-15/405794253_1064022451294728_6087255112269182935_n.jpg?stp=dst-jpg_e35&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xNDQweDE4MDAuc2RyIn0&_nc_ht=instagram.fopo3-2.fna.fbcdn.net&_nc_cat=100&_nc_ohc=A-wcC6xt34gAX9bHCZ6&edm=ACWDqb8BAAAA&ccb=7-5&ig_cache_key=MzI0ODk0MTM3MTg3NTc4MTU2Nw%3D%3D.2-ccb7-5&oh=00_AfBCMJet0eYXw0XoSyeA2Dbv2iSmJJMp-fbThuVGMDNqQg&oe=65748660&_nc_sid=ee9879")
 file11 = URI.open("https://instagram.fopo3-1.fna.fbcdn.net/v/t51.2885-15/378521534_849983053138698_3565991360571487535_n.jpg?stp=dst-jpg_e35&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xNDQweDE4MDAuc2RyIn0&_nc_ht=instagram.fopo3-1.fna.fbcdn.net&_nc_cat=106&_nc_ohc=pqSJbJMqUcEAX9OuVue&edm=ABmJApABAAAA&ccb=7-5&ig_cache_key=MzE5MzM4OTczODk1NDAzOTU4OQ%3D%3D.2-ccb7-5&oh=00_AfAZ80MRK4ELvtzCNxbSnT2KrRUq9tocph30oJaydQubyQ&oe=65760F2F&_nc_sid=b41fef")
 file12 = URI.open("https://instagram.fopo3-1.fna.fbcdn.net/v/t51.2885-15/367524456_160811773703252_2218415290754494244_n.jpg?stp=dst-jpg_e35&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xNDQweDE4MDAuc2RyIn0&_nc_ht=instagram.fopo3-1.fna.fbcdn.net&_nc_cat=108&_nc_ohc=PJRzVevMlLMAX-xBKwC&edm=ABmJApABAAAA&ccb=7-5&ig_cache_key=MzE3MDgzNDMyNTMxODQyODI5Nw%3D%3D.2-ccb7-5&oh=00_AfA3sKVI_GKgTgtU17lBbdQ0BIKsJHVTPrZ_pRKbdkRcwg&oe=6575D716&_nc_sid=b41fef")
-user6 = User.new(first_name: "Kortney", last_name: "Coleman", nickname: "kortneyeliesecoleman", age: 28, location: "Porto", description: "I am going to live in Porto for at least the next year, since I got a promotion at work. Unfortunatly I had no idea how high the prices of houses where 😬. I also like to record videos for my youtube channel at home!", email: "kortney@lewagon.com", password: "123456", gender: "Female", tags: "Gym, Coffee, Nightlife, Youtube")
+user6 = User.new(first_name: "Kortney", last_name: "Coleman", nickname: "kortneyeliesecoleman", age: 28, location: "Porto", description: "I am going to live in Porto for at least the next year, since I got a promotion at work. Unfortunatly I had no idea how high the prices of houses were 😬. I also like to record videos for my youtube channel at home!", email: "kortney@lewagon.com", password: "123456", gender: "Female", tags: "Gym, Coffee, Nightlife, Youtube")
 user6.photos.attach([
   {io: file10, filename: 'file10.png', content_type: 'image/png'},
   {io: file11, filename: 'file11.png', content_type: 'image/png'},
