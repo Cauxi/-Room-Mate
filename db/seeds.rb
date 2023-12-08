@@ -42,16 +42,17 @@ user6.photos.attach([
   {io: file12, filename: 'file12.png', content_type: 'image/png'},
 ])
 
-puts "marie"
-file13 = URI.open("https://instagram.fopo3-1.fna.fbcdn.net/v/t51.2885-15/367458770_187477497549750_4816709815697166029_n.jpg?stp=dst-jpg_e35&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xNDQweDE4MDAuc2RyIn0&_nc_ht=instagram.fopo3-1.fna.fbcdn.net&_nc_cat=106&_nc_ohc=rhNeTE8AMG4AX_gZB74&edm=ACWDqb8BAAAA&ccb=7-5&ig_cache_key=MzE2ODY1OTgxNTM5NDI5NTYxNw%3D%3D.2-ccb7-5&oh=00_AfAzGtdB_cLKkQVhnghU1Td-DuGQ-dpe2ik3lIzgdrlCBg&oe=6575C5AB&_nc_sid=ee9879")
-file14 = URI.open("https://instagram.fopo3-2.fna.fbcdn.net/v/t51.2885-15/166339331_917946265690084_6463285579910067172_n.jpg?stp=dst-jpg_e35&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xNDQweDE4MDAuc2RyIn0&_nc_ht=instagram.fopo3-2.fna.fbcdn.net&_nc_cat=104&_nc_ohc=iLAAHvg_n5sAX_otZ_v&edm=ACWDqb8BAAAA&ccb=7-5&ig_cache_key=MjU0MTAwMTY4NTY2MTM5NDg2MA%3D%3D.2-ccb7-5&oh=00_AfCq9R5aaQyoNHKGwIPU22pb9F6YClu8oxliXZ7PTVpLSQ&oe=657374FB&_nc_sid=ee9879")
-file15 = URI.open("https://scontent.cdninstagram.com/v/t51.2885-15/135325939_508845566753768_4131026957858391674_n.jpg?stp=dst-jpg_e35&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xNDQweDE0NDAuc2RyIn0&_nc_ht=scontent.cdninstagram.com&_nc_cat=108&_nc_ohc=Gh852iE4dsEAX8oeVek&edm=APs17CUBAAAA&ccb=7-5&ig_cache_key=MjQ3OTI0OTExNTIzMDcwNzA0Mg%3D%3D.2-ccb7-5&oh=00_AfAke3UCFk_2mayK6iVmnprNXHfQ8aZVWezmU9aZfTlFoA&oe=6575289E&_nc_sid=10d13b")
-user7 = User.new(first_name: "Marie", last_name: "Antoinette", nickname: "marie_antoinette", age: 20, location: "Porto", description: "Hello you, I am from the Netherlands and I am going to study in Portugal. I want to find a big group for a big house!", email: "marie@lewagon.com", password: "123456", gender: "Female", tags: "Motorcycles, Nightlife, Vlogs")
-user7.photos.attach([
-  {io: file13, filename: 'file13.png', content_type: 'image/png'},
-  {io: file14, filename: 'file14.png', content_type: 'image/png'},
-  {io: file15, filename: 'file15.png', content_type: 'image/png'},
-])
+# puts "marie"
+# file13 = URI.open("https://instagram.fopo3-1.fna.fbcdn.net/v/t51.2885-15/367458770_187477497549750_4816709815697166029_n.jpg?stp=dst-jpg_e35&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xNDQweDE4MDAuc2RyIn0&_nc_ht=instagram.fopo3-1.fna.fbcdn.net&_nc_cat=106&_nc_ohc=rhNeTE8AMG4AX_gZB74&edm=ACWDqb8BAAAA&ccb=7-5&ig_cache_key=MzE2ODY1OTgxNTM5NDI5NTYxNw%3D%3D.2-ccb7-5&oh=00_AfAzGtdB_cLKkQVhnghU1Td-DuGQ-dpe2ik3lIzgdrlCBg&oe=6575C5AB&_nc_sid=ee9879")
+# file14 = URI.open("https://instagram.fopo3-2.fna.fbcdn.net/v/t51.2885-15/166339331_917946265690084_6463285579910067172_n.jpg?stp=dst-jpg_e35&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xNDQweDE4MDAuc2RyIn0&_nc_ht=instagram.fopo3-2.fna.fbcdn.net&_nc_cat=104&_nc_ohc=iLAAHvg_n5sAX_otZ_v&edm=ACWDqb8BAAAA&ccb=7-5&ig_cache_key=MjU0MTAwMTY4NTY2MTM5NDg2MA%3D%3D.2-ccb7-5&oh=00_AfCq9R5aaQyoNHKGwIPU22pb9F6YClu8oxliXZ7PTVpLSQ&oe=657374FB&_nc_sid=ee9879")
+# file15 = URI.open("https://scontent.cdninstagram.com/v/t51.2885-15/135325939_508845566753768_4131026957858391674_n.jpg?stp=dst-jpg_e35&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xNDQweDE0NDAuc2RyIn0&_nc_ht=scontent.cdninstagram.com&_nc_cat=108&_nc_ohc=Gh852iE4dsEAX8oeVek&edm=APs17CUBAAAA&ccb=7-5&ig_cache_key=MjQ3OTI0OTExNTIzMDcwNzA0Mg%3D%3D.2-ccb7-5&oh=00_AfAke3UCFk_2mayK6iVmnprNXHfQ8aZVWezmU9aZfTlFoA&oe=6575289E&_nc_sid=10d13b")
+# user7 = User.new(first_name: "Marie", last_name: "Antoinette", nickname: "marie_antoinette", age: 20, location: "Porto", description: "Hello you, I am from the Netherlands and I am going to study in Portugal. I want to find a big group for a big house!", email: "marie@lewagon.com", password: "123456", gender: "Female", tags: "Motorcycles, Nightlife, Vlogs")
+# user7.photos.attach([
+#   {io: file13, filename: 'file13.png', content_type: 'image/png'},
+#   {io: file14, filename: 'file14.png', content_type: 'image/png'},
+#   {io: file15, filename: 'file15.png', content_type: 'image/png'},
+# ])
+
 puts "joao"
 file2 = URI.open("https://avatars.githubusercontent.com/u/107856581?v=4")
 user2 = User.new(first_name: "João", last_name: "Martins", nickname: "BigJ", age: 26, location: "Porto", description: "I love Le Wagon, it's the best company ever made, thank you Boris and Seb. Coma Bem is the best!", email: "joao@lewagon.com", password: "123456", gender: "Male", tags: "Gaming, Foodie, LH44, WebDev")
