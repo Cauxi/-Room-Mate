@@ -1,1 +1,1 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+A web app created in Ruby on Rails with the intent to help young adults find or create an harmonious group of people to share a house with
