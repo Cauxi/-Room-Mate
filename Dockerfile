@@ -12,6 +12,9 @@ WORKDIR /rails
 COPY package*.json ./
 RUN npm install
 
+# Copy the entire application code to the build stage
+COPY . .
+
 # Build stage with the official Ruby image
 FROM ruby:$RUBY_VERSION as ruby_build
 
