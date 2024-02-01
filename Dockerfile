@@ -16,7 +16,7 @@ RUN npm install
 COPY . .
 
 # Build stage with the official Ruby image
-FROM ruby:$RUBY_VERSION as ruby_build
+FROM ruby:$RUBY_VERSION
 
 WORKDIR /rails
 
@@ -36,11 +36,8 @@ RUN bundle install && \
     rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git && \
     bundle exec bootsnap precompile --gemfile
 
-# Copy application code
-COPY . .
-
-# Copy Node.js dependencies from the node_build stage
-COPY --from=node_build /rails/node_modules /rails/node_modules
+# Copy the entire application code from the node_build stage
+COPY --from=node_build /rails /rails
 
 # Precompile bootsnap code for faster boot times
 RUN bundle exec bootsnap precompile app/ lib/
