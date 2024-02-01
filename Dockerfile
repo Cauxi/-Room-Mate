@@ -2,9 +2,19 @@
 
 # Make sure RUBY_VERSION matches the Ruby version in .ruby-version and Gemfile
 ARG RUBY_VERSION=3.1.2
-FROM ruby:$RUBY_VERSION-node as base
 
-# Rails app lives here
+# Build stage with separate Node.js image
+FROM node:14 AS node_build
+
+WORKDIR /rails
+
+# Copy only package.json and package-lock.json to install Node.js dependencies
+COPY package*.json ./
+RUN npm install
+
+# Build stage with the official Ruby image
+FROM ruby:$RUBY_VERSION as ruby_build
+
 WORKDIR /rails
 
 # Set production environment
@@ -12,9 +22,6 @@ ENV RAILS_ENV="production" \
     BUNDLE_DEPLOYMENT="1" \
     BUNDLE_PATH="/usr/local/bundle" \
     BUNDLE_WITHOUT="development"
-
-# Throw-away build stage to reduce size of final image
-FROM base as build
 
 # Install packages needed to build gems
 RUN apt-get update -qq && \
@@ -29,15 +36,19 @@ RUN bundle install && \
 # Copy application code
 COPY . .
 
+# Copy Node.js dependencies from the node_build stage
+COPY --from=node_build /rails/node_modules /rails/node_modules
+
 # Precompile bootsnap code for faster boot times
 RUN bundle exec bootsnap precompile app/ lib/
 
 # Precompiling assets for production without requiring secret RAILS_MASTER_KEY
 RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
 
-
 # Final stage for app image
-FROM base
+FROM ruby:$RUBY_VERSION
+
+WORKDIR /rails
 
 # Install packages needed for deployment
 RUN apt-get update -qq && \
@@ -45,12 +56,13 @@ RUN apt-get update -qq && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Copy built artifacts: gems, application
-COPY --from=build /usr/local/bundle /usr/local/bundle
-COPY --from=build /rails /rails
+COPY --from=ruby_build /usr/local/bundle /usr/local/bundle
+COPY --from=ruby_build /rails /rails
 
 # Run and own only the runtime files as a non-root user for security
 RUN useradd rails --create-home --shell /bin/bash && \
     chown -R rails:rails db log storage tmp
+
 USER rails:rails
 
 # Entrypoint prepares the database.
